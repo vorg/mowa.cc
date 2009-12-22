@@ -17,12 +17,13 @@
 
 using namespace std;
 
+
 namespace flow {
-	
+
 //------------------------------------------------------------------------------
 
 bool Shader::load(const char* code) {
-	log("Shader::load");
+	Log::msg("Shader::load");
 	string codeStr(code);
 	vector<string> lines;
 	stringExplode(codeStr, "\n", &lines);

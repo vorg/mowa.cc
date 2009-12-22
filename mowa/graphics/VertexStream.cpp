@@ -26,7 +26,7 @@ VertexAttrib::VertexAttrib(VertexAttribType vertexAttribType, DataType dataType)
 		case TYPE_VEC3:		stride = sizeof(vec3); break;
 		default :	
 			stride = 0;		
-			log("ERROR: Vertex AttribType have to be float, vec2 or vec3");
+			Log::msg("ERROR: Vertex AttribType have to be float, vec2 or vec3");
 	}
 }
 
@@ -135,7 +135,7 @@ void VertexStream::setNumVertices(unsigned int numVertices) {
 	this->numVertices = numVertices;
 	
 	for(int i=0; i<attribs.size(); i++) {
-		log(" %d %s", i, attribs[i]->getVertexAttribType().c_str());
+		Log::msg(" %d %s", i, attribs[i]->getVertexAttribType().c_str());
 		attribs[i]->setNumVertices(numVertices);
 	}
 }

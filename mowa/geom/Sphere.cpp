@@ -16,7 +16,7 @@ namespace flow {
 //------------------------------------------------------------------------------
 	
 Sphere::Sphere() {	
-	log("Sphere::Sphere default r:1 nsides:32 nsegments:32");
+	Log::msg("Sphere::Sphere default r:1 nsides:32 nsegments:32");
 	vertexStream.addAttrib("position", TYPE_VEC3);
 	vertexStream.addAttrib("normal", TYPE_VEC3);
 	vertexStream.addAttrib("texCoord0", TYPE_VEC2);	
@@ -26,7 +26,7 @@ Sphere::Sphere() {
 //------------------------------------------------------------------------------
 	
 Sphere::Sphere(float r, unsigned int nsides, unsigned int nsegments) {	
-	log("Sphere::Sphere r:%f nsides:%d nsegments:%d", r, nsides, nsegments);
+	Log::msg("Sphere::Sphere r:%f nsides:%d nsegments:%d", r, nsides, nsegments);
 	vertexStream.addAttrib("position", TYPE_VEC3);
 	vertexStream.addAttrib("normal", TYPE_VEC3);
 	vertexStream.addAttrib("texCoord0", TYPE_VEC2);
@@ -43,7 +43,7 @@ Sphere::~Sphere() {
 //------------------------------------------------------------------------------
 
 void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
-	log("Sphere::genSphere r:%f nsides:%d nsegments:%d", r, nsides, nsegments);		
+	Log::msg("Sphere::genSphere r:%f nsides:%d nsegments:%d", r, nsides, nsegments);		
 	
 	float theta,phi;
 	float dtheta = 180.0f/nsegments;
@@ -60,7 +60,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 	vertexStream.setNumIndices(estimatedNumPoints * 6);
 	vertexStream.setNumIndices2(estimatedNumPoints * 8);
 	
-	log("Sphere::genSphere numPoints:%d numIndices:%d", estimatedNumPoints, estimatedNumPoints*6);		
+	Log::msg("Sphere::genSphere numPoints:%d numIndices:%d", estimatedNumPoints, estimatedNumPoints*6);		
 	
 	VertexAttrib* posAttrib = vertexStream.getAttrib("position", TYPE_VEC3);
 	vec3* posBuf = (vec3*)posAttrib->getBuffer();
@@ -134,7 +134,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 		}
 	}
 	
-	log(" vertexStream %d .numAttribs: %d", &vertexStream, vertexStream.getNumAttribs());
+	Log::msg(" vertexStream %d .numAttribs: %d", &vertexStream, vertexStream.getNumAttribs());
 }
 
 //------------------------------------------------------------------------------

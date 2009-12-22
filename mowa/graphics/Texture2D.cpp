@@ -13,19 +13,19 @@
 namespace flow {
 
 Texture2D::Texture2D() {
-	log("Texture2D+");	
+	Log::msg("Texture2D+");	
 }
 	
 	
 Texture2D::~Texture2D() {
-	log("Texture2D-");
+	Log::msg("Texture2D-");
 	if (textureObject > 0) {
 		glDeleteTextures(1, &textureObject);
 	}
 }
 	
 Texture2D* Texture2D::create(int width, int height) {
-	log("Texture2D::create w:%d h:%d", width, height);
+	Log::msg("Texture2D::create w:%d h:%d", width, height);
 
 	Texture2D* texture2D = new Texture2D();
 	
@@ -45,7 +45,7 @@ Texture2D* Texture2D::create(int width, int height) {
 	glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 	int error = glGetError();
 	if (error != GL_NO_ERROR) {
-		log("Texture2D::create error");
+		Log::msg("Texture2D::create error");
 	}	
 	return texture2D;
 }
@@ -60,7 +60,7 @@ Texture2D* Texture2D::generateChecker() {
 	Texture2D* texture2D = Texture2D::create(width, height);
 	//glActiveTexture(GL_TEXTURE0);	
 	glBindTexture(texture2D->textureTarget, texture2D->textureObject);
-	log("texture2D->textureObject %d", texture2D->textureObject);
+	Log::msg("texture2D->textureObject %d", texture2D->textureObject);
 	
 	int c;
 	//int r, g, b, rgb;
@@ -95,7 +95,7 @@ Texture2D* Texture2D::generateChecker() {
 	Texture2D* texture2D = Texture2D::create(width, height);
 	//glActiveTexture(GL_TEXTURE0);	
 	glBindTexture(texture2D->textureTarget, texture2D->textureObject);
-	log("texture2D->textureObject %d", texture2D->textureObject);
+	Log::msg("texture2D->textureObject %d", texture2D->textureObject);
 	
 	int c;
 	//int r, g, b, rgb;
@@ -107,9 +107,9 @@ Texture2D* Texture2D::generateChecker() {
 			//g = c << 0;
 			//b = c << 0;
 			//rgb = r + g + b;
-			pixels[(x + y*width)*4 + 0] = c;
+			pixels[(x + y*width)*4 + 0] = 255;
 			pixels[(x + y*width)*4 + 1] = c;
-			pixels[(x + y*width)*4 + 2] = 255;
+			pixels[(x + y*width)*4 + 2] = c;
 			pixels[(x + y*width)*4 + 3] = 255;
 		}
 	}

@@ -11,13 +11,24 @@
 #include <vector>
 using namespace std;
 
-namespace flow { 
+#ifndef FLOW_UTILS_H
+#define FLOW_UTILS_H
+
+namespace flow { 	
+
+//------------------------------------------------------------------------------
+
+class Log {
+public:
+	static void msg(const char *formatStr, ...);
+};
 	
 //------------------------------------------------------------------------------
 
-void log(const char *formatStr, ...);
 void stringExplode(string str, string separator, vector<string>* results);
 	
 //------------------------------------------------------------------------------
 
 } //end namespace flow
+
+#endif //FLOW_UTILS_H

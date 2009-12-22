@@ -7,16 +7,16 @@
  *
  */
 
-#include "utils.h"
+#include "Utils.h"
 
 namespace flow { 
 	
 //------------------------------------------------------------------------------
 
-void log(const char *formatStr, ...) {	
+void Log::msg(const char *formatStr, ...) {	
 	
 	va_list params;
-	char buf[256];
+	char buf[256];file://localhost/Users/vorg/Workspace/vorg-mowa-cc/mowa/old
 	
 	va_start ( params, formatStr );
 	vsprintf ( buf, formatStr, params );
