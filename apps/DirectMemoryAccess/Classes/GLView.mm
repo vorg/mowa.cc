@@ -104,8 +104,13 @@ unsigned char* osLoadImageFile(const char* fileName) {
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	//UITouch *touch = [[touches allObjects] objectAtIndex:0];
-	app->onMouseDown(0,0);
+	CGPoint touchPos = [[touches anyObject] locationInView:self];
+	app->onMouseDown(touchPos.x, touchPos.y);
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	CGPoint touchPos = [[touches anyObject] locationInView:self];
+	app->onMouseMove(touchPos.x, touchPos.y);
 }
 
 

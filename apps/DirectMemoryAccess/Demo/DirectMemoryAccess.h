@@ -29,6 +29,7 @@ public:
 	void dispose();	
 	void onMouseDown(int x, int y);
 	void onMouseUp(int x, int y);
+	void onMouseMove(int x, int y);
 };
 
 //------------------------------------------------------------------------------

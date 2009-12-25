@@ -31,9 +31,9 @@ public:
 	virtual void init();
 	virtual void update();
 	virtual void dispose();
-	
 	virtual void onMouseDown(int x, int y) {};
 	virtual void onMouseUp(int x, int y) {};
+	virtual void onMouseMove(int x, int y) {};
 	
 	Dimensions getWindowSize();
 };

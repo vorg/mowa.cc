@@ -21,14 +21,23 @@ using namespace flow;
 class LutDistort : public Effect {
 private:
 	Shader* shader;
-	Texture2D* lutTex;
-	Texture2D* texture;
+	
+	Texture2D* textureClouds;
+	Texture2D* textureStripes;
+	Texture2D* textureChecker;
+	int mode;
+	int numModes;
+	float crossFade;
 	
 public:
 	LutDistort();
 	~LutDistort();
 	
-	void draw();		
+	void createLut();	
+	void draw();	
+	
+	void onMouseDown(int x, int y);
+	void onMouseMove(int x, int y);	
 };
 
 #endif LUT_DISTORT_H

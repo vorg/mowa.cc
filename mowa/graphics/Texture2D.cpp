@@ -102,6 +102,10 @@ Texture2D* Texture2D::fromFile(const char* fileName) {
 	if (imageData) {
 		Texture2D* texture2D = Texture2D::create(256, 256);
 		glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, 256, 256, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
+		free(imageData);		
+		glGenerateMipmap(texture2D->textureTarget);
+		glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		return texture2D;		
 	}
 	else {

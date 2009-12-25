@@ -30,17 +30,50 @@ LutDistort::LutDistort() {
 	const char* shaderCode = osLoadTextFile("lutDistort.glsl");
 	shader->load(shaderCode);
 	
-	//texture = Texture2D::create(256, 256);
-	//texture = Texture2D::generateChecker();
-	texture = Texture2D::fromFile("clouds_mirror.png");
+	textureClouds = Texture2D::fromFile("clouds_mirror.png");
+	textureStripes = Texture2D::fromFile("stripes3.png");
+	textureChecker = Texture2D::generateChecker();	
+	
+	const char* extensions = (const char*)glGetString(GL_EXTENSIONS);
+	const char* ext = "OES_texture_float";
+	char* pos = strstr(extensions, ext);
+	Log::msg("%s:%d", ext, pos);
+		
+	numModes = 9;
+	mode = numModes-1;
+	crossFade = 0;
 }
 
 //------------------------------------------------------------------------------
 
 LutDistort::~LutDistort() {
 	Log::msg("LutDistort-");	
-	delete texture;
+	delete textureClouds;
+	delete textureStripes;
+	delete textureChecker;	
 	delete shader;
+}
+
+//------------------------------------------------------------------------------
+
+void LutDistort::createLut() {
+	float* data;
+	int w = 512;
+	int h = 512;	
+	for( int j=0; j < w; j++ ) {
+		for( int i=0; i < h; i++ ) {
+			const float x = -1.00f + 2.00f*(float)i/(float)w;
+			const float y = -1.00f + 2.00f*(float)j/(float)h;
+			const float d = sqrtf( x*x + y*y );
+			const float a = atan2f( y, x );
+			
+			float u = cosf( a )/d;
+			float v = sinf( a )/d;
+			
+			*data++ = fmodf( u, 1.0f );
+			*data++ = fmodf( v, 1.0f );
+		}
+	}
 }
 
 //------------------------------------------------------------------------------
@@ -71,11 +104,21 @@ void LutDistort::draw() {
 	shader->bind();
 	shader->setUniform("time", Timer::getInstance().getTime());
 	shader->setUniform("diffuseTex", 0);	
+	shader->setUniform("mode", mode);	
+	shader->setUniform("crossFade", crossFade);	
 	
 	//Log::msg("time: %f", Timer::getInstance().getTime());
 	
 	glActiveTexture(GL_TEXTURE0);
-	texture->bind();
+	if (mode == 2 || mode == 1) {
+		textureStripes->bind();
+	}
+	else if (mode == 8) {
+		textureChecker->bind();
+	}
+	else {
+		textureClouds->bind();
+	}
 	
 	glVertexAttribPointer(ATTRIB_POSITON, 2, GL_FLOAT, false, 0, positions);
 	glEnableVertexAttribArray(ATTRIB_POSITON);
@@ -87,6 +130,19 @@ void LutDistort::draw() {
 	glEnableVertexAttribArray(ATTRIB_TEXCOORD0);	
 	
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices);		
+}
+
+//------------------------------------------------------------------------------
+
+void LutDistort::onMouseDown(int x, int y) {
+		mode = (mode + 1) % numModes;
+}
+
+//------------------------------------------------------------------------------
+
+void LutDistort::onMouseMove(int x, int y) {
+	crossFade = x / 480.0f;
+	Log::msg("%f", crossFade);
 }
 
 //------------------------------------------------------------------------------

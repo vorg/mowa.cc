@@ -62,3 +62,9 @@ void DirectMemoryAccess::onMouseUp(int x, int y) {
 }
 
 //------------------------------------------------------------------------------
+
+void DirectMemoryAccess::onMouseMove(int x, int y) {
+	effect->onMouseMove(x, y);
+}
+
+//------------------------------------------------------------------------------

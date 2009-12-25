@@ -53,7 +53,7 @@ void GLApp::init() {
 void GLApp::draw() {
 	glViewport(0, 0, windowWidth, windowHeight);
 	glClearColor(0.0f, 0.0f, 0.0f, 0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	
 }
 
 //------------------------------------------------------------------------------

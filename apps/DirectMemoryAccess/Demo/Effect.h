@@ -23,6 +23,7 @@ public:
 	
 	virtual void onMouseDown(int x, int y) {};
 	virtual void onMouseUp(int x, int y) {};	
+	virtual void onMouseMove(int x, int y) {};	
 };
 
 #endif EFFECT_H
