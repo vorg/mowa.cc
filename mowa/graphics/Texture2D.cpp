@@ -9,13 +9,18 @@
 
 #include "Texture2D.h"
 #include "Utils.h"
+#include "Os.h"
 
 namespace flow {
+	
+//------------------------------------------------------------------------------
+
 
 Texture2D::Texture2D() {
 	Log::msg("Texture2D+");	
 }
 	
+//------------------------------------------------------------------------------
 	
 Texture2D::~Texture2D() {
 	Log::msg("Texture2D-");
@@ -23,6 +28,8 @@ Texture2D::~Texture2D() {
 		glDeleteTextures(1, &textureObject);
 	}
 }
+	
+//------------------------------------------------------------------------------
 	
 Texture2D* Texture2D::create(int width, int height) {
 	Log::msg("Texture2D::create w:%d h:%d", width, height);
@@ -50,42 +57,8 @@ Texture2D* Texture2D::create(int width, int height) {
 	return texture2D;
 }
 
-	/*
-Texture2D* Texture2D::generateChecker() {
-	int width = 256;
-	int height = 256;
-	unsigned char* pixels = new unsigned char[width * height];
-	//* pixels = new int[width * height];
+//------------------------------------------------------------------------------
 	
-	Texture2D* texture2D = Texture2D::create(width, height);
-	//glActiveTexture(GL_TEXTURE0);	
-	glBindTexture(texture2D->textureTarget, texture2D->textureObject);
-	Log::msg("texture2D->textureObject %d", texture2D->textureObject);
-	
-	int c;
-	//int r, g, b, rgb;
-	for (int y = 0; y < width; y++) {
-		for (int x = 0; x < height; x++) {
-			c = (unsigned char)(((x&16)^(y&16))*255);
-			//c = (255 << 24) | (255 << 16) | (255 < 8) | (255);
-			//r = c << 16;
-			//g = c << 0;
-			//b = c << 0;
-			//rgb = r + g + b;
-			pixels[(x + y*width) + 0] = c;
-		}
-	}
-	
-	//glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, pixels);
-	glTexImage2D(texture2D->textureTarget, 0, GL_LUMINANCE, width, height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, pixels);
-	glGenerateMipmap(texture2D->textureTarget);
-	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	return texture2D;	
-}
-	 */
-	
-
 Texture2D* Texture2D::generateChecker() {
 	int width = 256;
 	int height = 256;
@@ -107,7 +80,7 @@ Texture2D* Texture2D::generateChecker() {
 			//g = c << 0;
 			//b = c << 0;
 			//rgb = r + g + b;
-			pixels[(x + y*width)*4 + 0] = 255;
+			pixels[(x + y*width)*4 + 0] = 255	;
 			pixels[(x + y*width)*4 + 1] = c;
 			pixels[(x + y*width)*4 + 2] = c;
 			pixels[(x + y*width)*4 + 3] = 255;
@@ -121,11 +94,29 @@ Texture2D* Texture2D::generateChecker() {
 	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	return texture2D;	
 }
-
+	
+//------------------------------------------------------------------------------
+	
+Texture2D* Texture2D::fromFile(const char* fileName) {	
+	unsigned char* imageData = osLoadImageFile(fileName);
+	if (imageData) {
+		Texture2D* texture2D = Texture2D::create(256, 256);
+		glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, 256, 256, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
+		return texture2D;		
+	}
+	else {
+		return Texture2D::generateChecker();
+	}
+	return NULL;
+}
+	
+//------------------------------------------------------------------------------
 	
 void Texture2D::bind() {
 	glBindTexture(GL_TEXTURE_2D, textureObject);
 }
+	
+//------------------------------------------------------------------------------
 	
 }
 
