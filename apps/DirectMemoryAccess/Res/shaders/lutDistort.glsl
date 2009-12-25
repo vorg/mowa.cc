@@ -60,12 +60,13 @@ void main()
 		//plasma in/out tunnel, time/2
 		u = 0.02*y+0.03*cos(a*3.0)/d;
 		v = 0.02*x+0.03*sin(a*3.0)/d;
-		t = time * 0.1;
+		t *= 0.1;
 	}
 	else if (mode < 3.0) {
 		//spiral tunnel
 		u = cos(a)/d;
 		v = sin(a)/d;
+		t *= 1.5;
 	}
 	else if (mode < 4.0) {
 		//warmhole
@@ -111,6 +112,6 @@ void main()
 		t = 0.0;
 	}
 	
-	gl_FragColor = texture2D(diffuseTex, vec2(u,v) + vec2(t)) * fog;
+	gl_FragColor = texture2D(diffuseTex, vec2(u,v) + vec2(t)) * fog * fog;
 }
 

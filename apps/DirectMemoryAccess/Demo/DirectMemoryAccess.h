@@ -22,6 +22,7 @@ using namespace flow;
 class DirectMemoryAccess : public GLApp {
 private:
 	Effect* effect;
+	Effect* bg;
 protected:
 	void draw();
 public:

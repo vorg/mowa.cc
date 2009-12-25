@@ -80,7 +80,7 @@ Texture2D* Texture2D::generateChecker() {
 			//g = c << 0;
 			//b = c << 0;
 			//rgb = r + g + b;
-			pixels[(x + y*width)*4 + 0] = 255	;
+			pixels[(x + y*width)*4 + 0] = c;
 			pixels[(x + y*width)*4 + 1] = c;
 			pixels[(x + y*width)*4 + 2] = c;
 			pixels[(x + y*width)*4 + 3] = 255;

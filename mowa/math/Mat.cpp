@@ -248,6 +248,63 @@ mat4 mat4::orthoMatrix(float left, float right, float bottom, float top, float n
 }
 	
 //-----------------------------------------------------------------------------
+
+// Invert the matrix44
+mat4 invert(const mat4& m) {	
+	mat4 a(m);
+	mat4 b = mat4::identityMatrix();
+	
+	int r, c;
+	int cc;
+	int rowMax; // Points to max abs value row in this column
+	int row;
+	float tmp;
+	
+	// Go through columns
+	for (c=0; c<4; c++) {
+		// Find the row with max value in this column
+		rowMax = c;
+		for (r=c+1; r<4; r++) {
+			if (fabs(a[c][r]) > fabs(a[c][rowMax]))	{
+				rowMax = r;
+			}
+		}
+		
+		// If the max value here is 0, we can't invert.  Return identity.
+		if (a[rowMax][c] == 0.0f)
+			return(mat4::identityMatrix());
+		
+		// Swap row "rowMax" with row "c"
+		for (cc=0; cc<4; cc++) {
+			tmp = a[cc][c];
+			a[cc][c] = a[cc][rowMax];
+			a[cc][rowMax] = tmp;
+			tmp = b[cc][c];
+			b[cc][c] = b[cc][rowMax];
+			b[cc][rowMax] = tmp;
+		}
+		
+		// Now everything we do is on row "c".
+		// Set the max cell to 1 by dividing the entire row by that value
+		tmp = a[c][c];
+		for (cc=0; cc<4; cc++) {
+			a[cc][c] /= tmp;
+			b[cc][c] /= tmp;
+		}
+		
+		// Now do the other rows, so that this column only has a 1 and 0's
+		for (row = 0; row < 4; row++) {
+			if (row != c) {
+				tmp = a[c][row];
+				for (cc=0; cc<4; cc++){
+					a[cc][row] -= a[cc][c] * tmp;
+					b[cc][row] -= b[cc][c] * tmp;
+				}
+			}
+		}
+	}
+}
+//-----------------------------------------------------------------------------
 	
 /*
  mat4& mat4::transpose()  {

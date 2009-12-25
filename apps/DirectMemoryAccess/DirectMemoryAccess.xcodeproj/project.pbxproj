@@ -19,6 +19,9 @@
 		9335D80B10E513F1003F54B1 /* stripes.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335D80A10E513F1003F54B1 /* stripes.png */; };
 		9335D8A210E51AF8003F54B1 /* stripes2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335D8A110E51AF8003F54B1 /* stripes2.png */; };
 		9335D8AB10E51BB9003F54B1 /* stripes3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335D8AA10E51BB9003F54B1 /* stripes3.png */; };
+		9335D99110E525B2003F54B1 /* envMap.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 9335D98410E5255C003F54B1 /* envMap.glsl */; };
+		9335D9C410E5294F003F54B1 /* sphereMap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9335D9C310E5294F003F54B1 /* sphereMap.jpg */; };
+		9335D9EB10E537B0003F54B1 /* ExampleTexturing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9335D9EA10E537B0003F54B1 /* ExampleTexturing.cpp */; };
 		93B08FD310E4CF08002FF7E9 /* LutDistort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93B08FD210E4CF08002FF7E9 /* LutDistort.cpp */; };
 		93B08FEA10E4CFF4002FF7E9 /* basic.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 93F1582610E138C300DC5171 /* basic.glsl */; };
 		93B08FEB10E4CFF4002FF7E9 /* basicTexture.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 93F1582710E138C300DC5171 /* basicTexture.glsl */; };
@@ -62,6 +65,10 @@
 		9335D80A10E513F1003F54B1 /* stripes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stripes.png; sourceTree = "<group>"; };
 		9335D8A110E51AF8003F54B1 /* stripes2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stripes2.png; sourceTree = "<group>"; };
 		9335D8AA10E51BB9003F54B1 /* stripes3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stripes3.png; sourceTree = "<group>"; };
+		9335D98410E5255C003F54B1 /* envMap.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = envMap.glsl; sourceTree = "<group>"; };
+		9335D9C310E5294F003F54B1 /* sphereMap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sphereMap.jpg; sourceTree = "<group>"; };
+		9335D9E910E537B0003F54B1 /* ExampleTexturing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleTexturing.h; sourceTree = "<group>"; };
+		9335D9EA10E537B0003F54B1 /* ExampleTexturing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExampleTexturing.cpp; sourceTree = "<group>"; };
 		93B08FD110E4CF08002FF7E9 /* LutDistort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutDistort.h; sourceTree = "<group>"; };
 		93B08FD210E4CF08002FF7E9 /* LutDistort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LutDistort.cpp; sourceTree = "<group>"; };
 		93B0913110E4D392002FF7E9 /* clouds_mirror.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds_mirror.png; sourceTree = "<group>"; };
@@ -194,6 +201,7 @@
 		93B0913010E4D392002FF7E9 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				9335D9C310E5294F003F54B1 /* sphereMap.jpg */,
 				9335D8AA10E51BB9003F54B1 /* stripes3.png */,
 				9335D8A110E51AF8003F54B1 /* stripes2.png */,
 				9335D80A10E513F1003F54B1 /* stripes.png */,
@@ -219,6 +227,8 @@
 				93E5930410E27F5F0096F258 /* RaytracedTunnel.cpp */,
 				93B08FD110E4CF08002FF7E9 /* LutDistort.h */,
 				93B08FD210E4CF08002FF7E9 /* LutDistort.cpp */,
+				9335D9E910E537B0003F54B1 /* ExampleTexturing.h */,
+				9335D9EA10E537B0003F54B1 /* ExampleTexturing.cpp */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -240,6 +250,7 @@
 				93F1582810E138C300DC5171 /* basicTransform.glsl */,
 				9310566410E4CDF400CA29D7 /* lutDistort.glsl */,
 				93E5930610E2819D0096F258 /* raytracedTunnel.glsl */,
+				9335D98410E5255C003F54B1 /* envMap.glsl */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -370,6 +381,8 @@
 				9335D80B10E513F1003F54B1 /* stripes.png in Resources */,
 				9335D8A210E51AF8003F54B1 /* stripes2.png in Resources */,
 				9335D8AB10E51BB9003F54B1 /* stripes3.png in Resources */,
+				9335D99110E525B2003F54B1 /* envMap.glsl in Resources */,
+				9335D9C410E5294F003F54B1 /* sphereMap.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +410,7 @@
 				93F1597F10E13DFA00DC5171 /* Utils.cpp in Sources */,
 				93E5930510E27F5F0096F258 /* RaytracedTunnel.cpp in Sources */,
 				93B08FD310E4CF08002FF7E9 /* LutDistort.cpp in Sources */,
+				9335D9EB10E537B0003F54B1 /* ExampleTexturing.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

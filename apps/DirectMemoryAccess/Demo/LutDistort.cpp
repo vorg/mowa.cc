@@ -31,7 +31,8 @@ LutDistort::LutDistort() {
 	shader->load(shaderCode);
 	
 	textureClouds = Texture2D::fromFile("clouds_mirror.png");
-	textureStripes = Texture2D::fromFile("stripes3.png");
+	textureStripes = Texture2D::fromFile("stripes.png");
+	textureStripes3 = Texture2D::fromFile("stripes3.png");
 	textureChecker = Texture2D::generateChecker();	
 	
 	const char* extensions = (const char*)glGetString(GL_EXTENSIONS);
@@ -50,6 +51,7 @@ LutDistort::~LutDistort() {
 	Log::msg("LutDistort-");	
 	delete textureClouds;
 	delete textureStripes;
+	delete textureStripes3;	
 	delete textureChecker;	
 	delete shader;
 }
@@ -81,6 +83,7 @@ void LutDistort::createLut() {
 void LutDistort::draw() {			
 	glClearColor(0, 1, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glDepthMask(false);
 	
 	static float positions[] = {
 		-1, -1, 
@@ -110,7 +113,10 @@ void LutDistort::draw() {
 	//Log::msg("time: %f", Timer::getInstance().getTime());
 	
 	glActiveTexture(GL_TEXTURE0);
-	if (mode == 2 || mode == 1) {
+	if (mode == 1) {
+		textureStripes3->bind();
+	}
+	else if (mode == 2) {
 		textureStripes->bind();
 	}
 	else if (mode == 8) {
@@ -129,7 +135,11 @@ void LutDistort::draw() {
 	glVertexAttribPointer(ATTRIB_TEXCOORD0, 2, GL_FLOAT, false, 0, texCoords);	
 	glEnableVertexAttribArray(ATTRIB_TEXCOORD0);	
 	
+	textureChecker->bind();
+	
+	glDepthMask(false);	
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices);		
+	glDepthMask(true);
 }
 
 //------------------------------------------------------------------------------

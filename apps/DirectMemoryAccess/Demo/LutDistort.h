@@ -24,6 +24,7 @@ private:
 	
 	Texture2D* textureClouds;
 	Texture2D* textureStripes;
+	Texture2D* textureStripes3;
 	Texture2D* textureChecker;
 	int mode;
 	int numModes;

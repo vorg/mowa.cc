@@ -25,9 +25,8 @@ void DirectMemoryAccess::init() {
 	Log::msg("DirectMemoryAccess::init");
 	GLApp::init();
 	
-	//effect = new DistortedSphere();
-	//effect = new RaytracedTunnel();	
-	effect = new LutDistort();	
+	bg = new LutDistort();	
+	effect = new DistortedSphere();
 }
 
 //------------------------------------------------------------------------------
@@ -37,7 +36,8 @@ void DirectMemoryAccess::draw() {
 	if (Timer::getInstance().getTotalFrameCount() % 100 == 33) {
 		Log::msg("draw %f", Timer::getInstance().getFPS());
 	}				
-	effect->draw();
+	bg->draw();
+	//effect->draw();
 }
 
 //------------------------------------------------------------------------------
@@ -47,24 +47,31 @@ void DirectMemoryAccess::dispose() {
 		delete effect;
 		effect = NULL;
 	}
+	if (bg) {
+		delete bg;
+		bg = NULL;
+	}
 }
 
 //------------------------------------------------------------------------------
 
 void DirectMemoryAccess::onMouseDown(int x, int y) {
 	effect->onMouseDown(x, y);
+	bg->onMouseDown(x, y);
 }
 
 //------------------------------------------------------------------------------
 
 void DirectMemoryAccess::onMouseUp(int x, int y) {
 	effect->onMouseUp(x, y);
+	bg->onMouseUp(x, y);
 }
 
 //------------------------------------------------------------------------------
 
 void DirectMemoryAccess::onMouseMove(int x, int y) {
 	effect->onMouseMove(x, y);
+	bg->onMouseMove(x, y);	
 }
 
 //------------------------------------------------------------------------------
