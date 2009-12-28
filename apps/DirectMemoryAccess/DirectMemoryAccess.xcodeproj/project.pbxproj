@@ -32,14 +32,20 @@
 		9335ED5610E7F36C003F54B1 /* ExampleTexturingSEMSpecularMap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9335DC2410E6BDFB003F54B1 /* ExampleTexturingSEMSpecularMap.jpg */; };
 		9335ED7010E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335ED6E10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png */; };
 		9335ED7110E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335ED6F10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png */; };
-		9370896910E818CA00A003B0 /* skyNegX.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896310E818CA00A003B0 /* skyNegX.png */; };
-		9370896A10E818CA00A003B0 /* skyNegY.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896410E818CA00A003B0 /* skyNegY.png */; };
-		9370896B10E818CA00A003B0 /* skyNegZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896510E818CA00A003B0 /* skyNegZ.png */; };
-		9370896C10E818CA00A003B0 /* skyPosX.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896610E818CA00A003B0 /* skyPosX.png */; };
-		9370896D10E818CA00A003B0 /* skyPosY.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896710E818CA00A003B0 /* skyPosY.png */; };
-		9370896E10E818CA00A003B0 /* skyPosZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896810E818CA00A003B0 /* skyPosZ.png */; };
 		9370899E10E819D800A003B0 /* TextureCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9370899D10E819D800A003B0 /* TextureCube.cpp */; };
 		937089B810E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 937089B710E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl */; };
+		93708CD910E8545000A003B0 /* browar_negx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93708CCD10E8545000A003B0 /* browar_negx.jpg */; };
+		93708CDA10E8545000A003B0 /* browar_negy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93708CCE10E8545000A003B0 /* browar_negy.jpg */; };
+		93708CDB10E8545000A003B0 /* browar_negz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93708CCF10E8545000A003B0 /* browar_negz.jpg */; };
+		93708CDC10E8545000A003B0 /* browar_posx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93708CD010E8545000A003B0 /* browar_posx.jpg */; };
+		93708CDD10E8545000A003B0 /* browar_posy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93708CD110E8545000A003B0 /* browar_posy.jpg */; };
+		93708CDE10E8545000A003B0 /* browar_posz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93708CD210E8545000A003B0 /* browar_posz.jpg */; };
+		93708CDF10E8545000A003B0 /* sky_negx.png in Resources */ = {isa = PBXBuildFile; fileRef = 93708CD310E8545000A003B0 /* sky_negx.png */; };
+		93708CE010E8545000A003B0 /* sky_negy.png in Resources */ = {isa = PBXBuildFile; fileRef = 93708CD410E8545000A003B0 /* sky_negy.png */; };
+		93708CE110E8545000A003B0 /* sky_negz.png in Resources */ = {isa = PBXBuildFile; fileRef = 93708CD510E8545000A003B0 /* sky_negz.png */; };
+		93708CE210E8545000A003B0 /* sky_posx.png in Resources */ = {isa = PBXBuildFile; fileRef = 93708CD610E8545000A003B0 /* sky_posx.png */; };
+		93708CE310E8545000A003B0 /* sky_posy.png in Resources */ = {isa = PBXBuildFile; fileRef = 93708CD710E8545000A003B0 /* sky_posy.png */; };
+		93708CE410E8545000A003B0 /* sky_posz.png in Resources */ = {isa = PBXBuildFile; fileRef = 93708CD810E8545000A003B0 /* sky_posz.png */; };
 		93B08FD310E4CF08002FF7E9 /* LutDistort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93B08FD210E4CF08002FF7E9 /* LutDistort.cpp */; };
 		93B08FEA10E4CFF4002FF7E9 /* basic.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 93F1582610E138C300DC5171 /* basic.glsl */; };
 		93B08FEB10E4CFF4002FF7E9 /* basicTexture.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 93F1582710E138C300DC5171 /* basicTexture.glsl */; };
@@ -99,16 +105,22 @@
 		9335ED6E10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ExampleTexturingSEMLightProbeWarm.png; sourceTree = "<group>"; };
 		9335ED6F10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ExampleTexturingSEMLightProbeCold.png; sourceTree = "<group>"; };
 		93707BE410E8136800A003B0 /* copy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = copy; path = ../../copy; sourceTree = SOURCE_ROOT; };
-		9370896310E818CA00A003B0 /* skyNegX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyNegX.png; sourceTree = "<group>"; };
-		9370896410E818CA00A003B0 /* skyNegY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyNegY.png; sourceTree = "<group>"; };
-		9370896510E818CA00A003B0 /* skyNegZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyNegZ.png; sourceTree = "<group>"; };
-		9370896610E818CA00A003B0 /* skyPosX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyPosX.png; sourceTree = "<group>"; };
-		9370896710E818CA00A003B0 /* skyPosY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyPosY.png; sourceTree = "<group>"; };
-		9370896810E818CA00A003B0 /* skyPosZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyPosZ.png; sourceTree = "<group>"; };
 		9370896F10E8190200A003B0 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		9370899C10E819D800A003B0 /* TextureCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureCube.h; sourceTree = "<group>"; };
 		9370899D10E819D800A003B0 /* TextureCube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureCube.cpp; sourceTree = "<group>"; };
 		937089B710E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExampleTexturingCubeMapping.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		93708CCD10E8545000A003B0 /* browar_negx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = browar_negx.jpg; sourceTree = "<group>"; };
+		93708CCE10E8545000A003B0 /* browar_negy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = browar_negy.jpg; sourceTree = "<group>"; };
+		93708CCF10E8545000A003B0 /* browar_negz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = browar_negz.jpg; sourceTree = "<group>"; };
+		93708CD010E8545000A003B0 /* browar_posx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = browar_posx.jpg; sourceTree = "<group>"; };
+		93708CD110E8545000A003B0 /* browar_posy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = browar_posy.jpg; sourceTree = "<group>"; };
+		93708CD210E8545000A003B0 /* browar_posz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = browar_posz.jpg; sourceTree = "<group>"; };
+		93708CD310E8545000A003B0 /* sky_negx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky_negx.png; sourceTree = "<group>"; };
+		93708CD410E8545000A003B0 /* sky_negy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky_negy.png; sourceTree = "<group>"; };
+		93708CD510E8545000A003B0 /* sky_negz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky_negz.png; sourceTree = "<group>"; };
+		93708CD610E8545000A003B0 /* sky_posx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky_posx.png; sourceTree = "<group>"; };
+		93708CD710E8545000A003B0 /* sky_posy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky_posy.png; sourceTree = "<group>"; };
+		93708CD810E8545000A003B0 /* sky_posz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky_posz.png; sourceTree = "<group>"; };
 		93B08FD110E4CF08002FF7E9 /* LutDistort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutDistort.h; sourceTree = "<group>"; };
 		93B08FD210E4CF08002FF7E9 /* LutDistort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LutDistort.cpp; sourceTree = "<group>"; };
 		93B0913110E4D392002FF7E9 /* clouds_mirror.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds_mirror.png; sourceTree = "<group>"; };
@@ -242,12 +254,18 @@
 		9370896210E818CA00A003B0 /* cubemaps */ = {
 			isa = PBXGroup;
 			children = (
-				9370896310E818CA00A003B0 /* skyNegX.png */,
-				9370896410E818CA00A003B0 /* skyNegY.png */,
-				9370896510E818CA00A003B0 /* skyNegZ.png */,
-				9370896610E818CA00A003B0 /* skyPosX.png */,
-				9370896710E818CA00A003B0 /* skyPosY.png */,
-				9370896810E818CA00A003B0 /* skyPosZ.png */,
+				93708CCD10E8545000A003B0 /* browar_negx.jpg */,
+				93708CCE10E8545000A003B0 /* browar_negy.jpg */,
+				93708CCF10E8545000A003B0 /* browar_negz.jpg */,
+				93708CD010E8545000A003B0 /* browar_posx.jpg */,
+				93708CD110E8545000A003B0 /* browar_posy.jpg */,
+				93708CD210E8545000A003B0 /* browar_posz.jpg */,
+				93708CD310E8545000A003B0 /* sky_negx.png */,
+				93708CD410E8545000A003B0 /* sky_negy.png */,
+				93708CD510E8545000A003B0 /* sky_negz.png */,
+				93708CD610E8545000A003B0 /* sky_posx.png */,
+				93708CD710E8545000A003B0 /* sky_posy.png */,
+				93708CD810E8545000A003B0 /* sky_posz.png */,
 			);
 			path = cubemaps;
 			sourceTree = "<group>";
@@ -462,13 +480,19 @@
 				9335ED5610E7F36C003F54B1 /* ExampleTexturingSEMSpecularMap.jpg in Resources */,
 				9335ED7010E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png in Resources */,
 				9335ED7110E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png in Resources */,
-				9370896910E818CA00A003B0 /* skyNegX.png in Resources */,
-				9370896A10E818CA00A003B0 /* skyNegY.png in Resources */,
-				9370896B10E818CA00A003B0 /* skyNegZ.png in Resources */,
-				9370896C10E818CA00A003B0 /* skyPosX.png in Resources */,
-				9370896D10E818CA00A003B0 /* skyPosY.png in Resources */,
-				9370896E10E818CA00A003B0 /* skyPosZ.png in Resources */,
 				937089B810E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl in Resources */,
+				93708CD910E8545000A003B0 /* browar_negx.jpg in Resources */,
+				93708CDA10E8545000A003B0 /* browar_negy.jpg in Resources */,
+				93708CDB10E8545000A003B0 /* browar_negz.jpg in Resources */,
+				93708CDC10E8545000A003B0 /* browar_posx.jpg in Resources */,
+				93708CDD10E8545000A003B0 /* browar_posy.jpg in Resources */,
+				93708CDE10E8545000A003B0 /* browar_posz.jpg in Resources */,
+				93708CDF10E8545000A003B0 /* sky_negx.png in Resources */,
+				93708CE010E8545000A003B0 /* sky_negy.png in Resources */,
+				93708CE110E8545000A003B0 /* sky_negz.png in Resources */,
+				93708CE210E8545000A003B0 /* sky_posx.png in Resources */,
+				93708CE310E8545000A003B0 /* sky_posy.png in Resources */,
+				93708CE410E8545000A003B0 /* sky_posz.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

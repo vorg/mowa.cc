@@ -16,14 +16,29 @@ namespace flow {
 void Log::msg(const char *formatStr, ...) {	
 	
 	va_list params;
-	char buf[256];file://localhost/Users/vorg/Workspace/vorg-mowa-cc/mowa/old
+	char buf[256];
+	
+	va_start(params, formatStr);
+	vsprintf(buf, formatStr, params);
+	
+	printf("%s\n", buf);
+	
+	va_end(params);
+}
+	
+//------------------------------------------------------------------------------
+
+void Log::error(const char *formatStr, ...) {	
+	
+	va_list params;
+	char buf[256];
 	
 	va_start ( params, formatStr );
-	vsprintf ( buf, formatStr, params );
-	
-	printf ( "%s\n", buf );
-	
+	vsprintf ( buf, formatStr, params );	
+		
 	va_end ( params );
+	
+	Log::msg("ERROR: %s", buf);
 }
 	
 //------------------------------------------------------------------------------

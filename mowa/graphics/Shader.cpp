@@ -21,6 +21,26 @@ using namespace std;
 namespace flow {
 
 //------------------------------------------------------------------------------
+	
+Shader::Shader() {	
+	Log::msg("Shader+");
+	programObject = 0;
+}
+
+//------------------------------------------------------------------------------
+
+Shader::~Shader() {	
+	Log::msg("Shader-");	
+	if (programObject) {
+		glDeleteProgram(programObject);
+	}	
+	while(!attribDeclarations.empty()) {
+		delete attribDeclarations.back();
+		attribDeclarations.pop_back();
+	}
+}
+	
+//------------------------------------------------------------------------------
 
 bool Shader::load(const char* code) {
 	Log::msg("Shader::load");
@@ -41,6 +61,24 @@ bool Shader::load(const char* code) {
 		}
 		else if (currentShaderCode != NULL){
 			*currentShaderCode += lines[i] + "\n";
+			//searching for attribs defined in source
+			if (lines[i].find("attribute") != string::npos) {
+				size_t secondSpace = lines[i].find(" ", 10); //10 is length of "attribute"+1
+				string attrType = lines[i].substr(10, secondSpace-10);
+				string attrName = lines[i].substr(secondSpace+1, lines[i].length() - secondSpace - 2);
+				
+				
+				if (attrType == "vec3") {
+					attribDeclarations.push_back(new VertexAttribDeclaration(attrName, TYPE_VEC3));
+				}
+				else if (attrType == "vec2") {
+					attribDeclarations.push_back(new VertexAttribDeclaration(attrName, TYPE_VEC2));
+				}
+				else {
+					Log::error("Shader::load Unsupported attrib type:%s name:%s", attrType.c_str(), attrName.c_str());
+					return false;
+				}
+			}			
 		}		
 	}
 	
@@ -94,11 +132,14 @@ GLuint Shader::compileProgram(GLuint vertexShaderObject, GLuint fragmentShaderOb
 	}
 	
 	glAttachShader(programObject, vertexShaderObject);
-	glAttachShader(programObject, fragmentShaderObject);							  
-	glBindAttribLocation(programObject, 0, "position");
+	glAttachShader(programObject, fragmentShaderObject);	
+	for(int i=0; i<attribDeclarations.size(); i++) {
+		glBindAttribLocation(programObject, i, attribDeclarations[i]->name.c_str());
+	}
+	//glBindAttribLocation(programObject, 0, "position");
 	//glBindAttribLocation(programObject, 1, "color");
-	glBindAttribLocation(programObject, 1, "normal");
-	glBindAttribLocation(programObject, 2, "texCoord0");	
+	//glBindAttribLocation(programObject, 1, "normal");
+	//glBindAttribLocation(programObject, 2, "texCoord0");	
 	glLinkProgram(programObject);
 	
 	GLint linked;
@@ -132,12 +173,26 @@ void Shader::bind() {
 void Shader::unbind() {
 	glUseProgram(0);
 }
-	
+
+//------------------------------------------------------------------------------
+
+void Shader::setUniform(const char* name, int value) {
+	int location = glGetUniformLocation(programObject, name);
+	glUniform1i(location, value);
+}
+
 //------------------------------------------------------------------------------
 
 void Shader::setUniform(const char* name, float value) {
 	int location = glGetUniformLocation(programObject, name);
 	glUniform1f(location, value);
+}
+	
+//------------------------------------------------------------------------------
+
+void Shader::setUniform(const char* name, double value) {
+	int location = glGetUniformLocation(programObject, name);
+	glUniform1f(location, (float)value);
 }
 	
 //------------------------------------------------------------------------------
@@ -161,12 +216,12 @@ Shader* Shader::fromFile(const char* fileName) {
 	if (shaderCode) {
 		Shader* shader = new Shader();
 		if (!shader->load(shaderCode)) {
-			Log::msg("Error: Invalid Shader code in '%s'", fileName);
+			Log::error("Shader::fromFile invalid code in '%s'", fileName);
 		}
 		return shader;
 	}
 	else {
-		Log::msg("Error: Failed to load Shader from '%s'", fileName);
+		Log::error("Shader::fromFile failed to load '%s'", fileName);
 		return NULL;
 	}
 }

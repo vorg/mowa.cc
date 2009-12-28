@@ -12,12 +12,32 @@
 
 #include <vector>
 #include "DataType.h"
+#include "Utils.h"
 
 namespace flow {
 	
 //-----------------------------------------------------------------------------
-	
+		
 typedef std::string VertexAttribType;
+	
+//-----------------------------------------------------------------------------
+	
+class VertexAttribDeclaration {
+public:
+	VertexAttribType name;
+	DataType dataType;
+	VertexAttribDeclaration(VertexAttribType name, DataType dataType) {
+		this->name = name;
+		this->dataType = dataType;
+		Log::msg("VertexAttribDeclaration+");
+	}
+	~VertexAttribDeclaration() {
+		Log::msg("VertexAttribDeclaration-");
+	}
+};
+	
+//-----------------------------------------------------------------------------
+
 
 class VertexAttrib {
 friend class VertexStream;
@@ -29,6 +49,7 @@ public:
 	VertexAttribType	getVertexAttribType();
 	DataType			getDataType();
 	unsigned char		getStride();
+	unsigned char		getSize();
 	
 private:
 	std::vector<unsigned int>	buffer;
@@ -36,6 +57,7 @@ private:
 	DataType			dataType;
 	unsigned int		numVertices;
 	unsigned char		stride;
+	unsigned char		size; //number of components per attribute value
 	
 	void				setNumVertices(unsigned int numVertices);
 };

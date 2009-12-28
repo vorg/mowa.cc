@@ -39,7 +39,7 @@ Texture2D* Texture2D::create(int width, int height) {
 	texture2D->height = height;
 	
 	glBindTexture(texture2D->textureTarget, texture2D->textureObject);
-	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameterf(texture2D->textureTarget, GL_TEXTURE_WRAP_S, GL_REPEAT );
 	glTexParameterf(texture2D->textureTarget, GL_TEXTURE_WRAP_T, GL_REPEAT );
@@ -90,7 +90,7 @@ Texture2D* Texture2D::generateChecker() {
 	glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
 	glGenerateMipmap(texture2D->textureTarget);
 	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	return texture2D;	
 }
 	

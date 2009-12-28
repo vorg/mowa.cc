@@ -21,9 +21,9 @@ VertexAttrib::VertexAttrib(VertexAttribType vertexAttribType, DataType dataType)
 	this->dataType = dataType;
 	
 	switch(dataType) {
-		case TYPE_FLOAT:	stride = sizeof(float); break;
-		case TYPE_VEC2:		stride = sizeof(vec2); break;
-		case TYPE_VEC3:		stride = sizeof(vec3); break;
+		case TYPE_FLOAT:	stride = sizeof(float); size = 1; break;
+		case TYPE_VEC2:		stride = sizeof(vec2); size = 2; break;
+		case TYPE_VEC3:		stride = sizeof(vec3); size = 3; break;
 		default :	
 			stride = 0;		
 			Log::msg("ERROR: Vertex AttribType have to be float, vec2 or vec3");
@@ -59,6 +59,12 @@ DataType VertexAttrib::getDataType() {
 
 unsigned char VertexAttrib::getStride() {
 	return stride;
+}
+
+//-----------------------------------------------------------------------------
+
+unsigned char VertexAttrib::getSize() {
+	return size;
 }
 
 //-----------------------------------------------------------------------------

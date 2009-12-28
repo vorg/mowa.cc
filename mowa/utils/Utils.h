@@ -21,6 +21,7 @@ namespace flow {
 class Log {
 public:
 	static void msg(const char *formatStr, ...);
+	static void error(const char *formatStr, ...);
 };
 	
 //------------------------------------------------------------------------------

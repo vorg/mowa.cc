@@ -15,7 +15,6 @@ namespace flow {
 	
 //------------------------------------------------------------------------------
 
-
 TextureCube::TextureCube() {
 	Log::msg("TextureCube+");	
 }
@@ -48,10 +47,11 @@ TextureCube* TextureCube::fromFile(const char* fileName) {
 		GL_TEXTURE_CUBE_MAP_POSITIVE_Z,
 		GL_TEXTURE_CUBE_MAP_NEGATIVE_Z
 	};
-	const char* suffixes[] = { "PosX", "NegX", "PosY", "NegY", "PosZ", "NegZ" };
+	const char* suffixes[] = { "posx", "negx", "posy", "negy", "posz", "negz" };
 	char sideFileName[255];	
 	for(int i=0; i<6; i++) {		
-		sprintf(sideFileName, "sky%s.png", suffixes[i]);
+		//sprintf(sideFileName, "sky_%s.png", suffixes[i]);
+		sprintf(sideFileName, "browar_%s.jpg", suffixes[i]);
 		unsigned char* imageData = osLoadImageFile(sideFileName, &texture->width, &texture->height);
 		glTexImage2D(targets[i], 0, GL_RGBA, texture->width, texture->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
 	}

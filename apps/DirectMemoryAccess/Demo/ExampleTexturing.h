@@ -24,21 +24,24 @@ private:
 	Shader* shader;
 	Geometry* geom;
 	Texture* texture;
+	Texture* texture2;
 	Sphere* sphere;
 	float strength;
 	float rotX;
 	float rotY;
+	float rotCamY;
 	int mode;
 public:
 	ExampleTexturing();
 	~ExampleTexturing();
 	
 	void draw();		
-	void setupBasic();
-	void setupSphericalEnvironmentMapping();
-	void setupCubeMapping();
+	void drawBasic();
+	void drawSphericalEnvironmentMapping();
+	void drawCubeMapping();
 	void onMouseDown(int x, int y, int key);
 	void onMouseMove(int x, int y, int key);
+	void render(Geometry* geom, Shader* shader);
 };
 
 #endif EXAMPLE_TEXTURING_H
