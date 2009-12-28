@@ -3,8 +3,6 @@ attribute vec2 position;
 attribute vec2 normal;
 attribute vec2 texCoord0;
 varying vec2 texCoord0Var;
-uniform mat4 projectionMatrix;
-uniform mat4 modelviewMatrix;
 
 void main()
 {
@@ -112,6 +110,6 @@ void main()
 		t = 0.0;
 	}
 	
-	gl_FragColor = texture2D(diffuseTex, vec2(u,v) + vec2(t)) * fog * fog;
+	gl_FragColor = texture2D(diffuseTex, vec2(u,v) + vec2(t)) * fog * fog;	
 }
 

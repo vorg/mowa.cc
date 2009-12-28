@@ -3,8 +3,6 @@ attribute vec2 position;
 attribute vec2 normal;
 attribute vec2 texCoord0;
 varying vec2 texCoord0Var;
-uniform mat4 projectionMatrix;
-uniform mat4 modelviewMatrix;
 
 void main()
 {

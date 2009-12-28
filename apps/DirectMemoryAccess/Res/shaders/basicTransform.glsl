@@ -11,10 +11,7 @@ uniform float time;
 uniform float strength;
 uniform float wireframe;
 uniform mat4 projectionMatrix;
-uniform mat4 modelviewMatrix;
-uniform mat4 invModelviewMatrix;
-
-//gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * gl_Vertex
+uniform mat4 modelViewMatrix;
 
 #define PI 3.14159265
 
@@ -25,7 +22,7 @@ void main()
 	//pos.xyz +=  strength*0.1 * sin(time*10.0 + texCoord0.t * 8.0 * PI) * normal + strength*0.2 * sin(texCoord0.s * 8.0 * PI) * normal;
 	float minLen = 1.0 - strength*0.3;
 	float maxLen = 1.0 + strength*0.3;
-	gl_Position = projectionMatrix * modelviewMatrix * pos;
+	gl_Position = projectionMatrix * modelViewMatrix * pos;
 	float depth = (length(pos)-minLen)/(maxLen-minLen);
 	vec4 inside = vec4(0.0, 0.0, 0.0, 1.0);
 	vec4 outside = vec4(1.0, 1.0, 1.0, 1.0);
@@ -38,7 +35,6 @@ void main()
 	//colorVar = vec4(0.5)+vec4(0.5*normalize(normal), 1.0);
 	//colorVar = vec4(0.5)+pos*0.5;
 	texCoord0Var = texCoord0;
-	//texCoord0Var = normalize(invModelviewMatrix * vec4(normal.xyz, 1.0)).xy;
 }
 
 //[FRAG]

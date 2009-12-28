@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef FLOW_GEOMETRY_H
+#define FLOW_GEOMETRY_H
+
 #include "VertexStream.h"
 
 namespace flow {
@@ -21,4 +24,6 @@ public:
 //------------------------------------------------------------------------------
 	
 }
+
+#endif FLOW_GEOMETRY_H
 

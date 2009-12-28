@@ -11,21 +11,11 @@
 #include "MathLib.h"
 #include "Utils.h"
 
-namespace flow {
+namespace flow {	
 	
 //------------------------------------------------------------------------------
 	
-Sphere::Sphere() {	
-	Log::msg("Sphere::Sphere default r:1 nsides:32 nsegments:32");
-	vertexStream.addAttrib("position", TYPE_VEC3);
-	vertexStream.addAttrib("normal", TYPE_VEC3);
-	vertexStream.addAttrib("texCoord0", TYPE_VEC2);	
-	genSphere(1, 32, 32);
-}
-	
-//------------------------------------------------------------------------------
-	
-Sphere::Sphere(float r, unsigned int nsides, unsigned int nsegments) {	
+Sphere::Sphere(float r=1, unsigned int nsides=36, unsigned int nsegments=36) {	
 	Log::msg("Sphere::Sphere r:%f nsides:%d nsegments:%d", r, nsides, nsegments);
 	vertexStream.addAttrib("position", TYPE_VEC3);
 	vertexStream.addAttrib("normal", TYPE_VEC3);
@@ -43,8 +33,6 @@ Sphere::~Sphere() {
 //------------------------------------------------------------------------------
 
 void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
-	Log::msg("Sphere::genSphere r:%f nsides:%d nsegments:%d", r, nsides, nsegments);		
-	
 	float theta,phi;
 	float dtheta = 180.0f/nsegments;
 	float dphi   = 360.0f/nsides;
@@ -54,7 +42,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 	vec3 normal;
 	vec2 coord;
 	
-	unsigned int estimatedNumPoints = (unsigned int)(360/dtheta + 1) * (unsigned int)(360/dphi + 1);
+	unsigned int estimatedNumPoints = (unsigned int)(360/dtheta + 1) * (unsigned int)(180/dphi + 1);
 	
 	vertexStream.setNumVertices(estimatedNumPoints);
 	vertexStream.setNumIndices(estimatedNumPoints * 6);
@@ -134,7 +122,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 		}
 	}
 	
-	Log::msg(" vertexStream %d .numAttribs: %d", &vertexStream, vertexStream.getNumAttribs());
+	Log::msg("	vertexStream %d .numAttribs: %d", &vertexStream, vertexStream.getNumAttribs());
 }
 
 //------------------------------------------------------------------------------

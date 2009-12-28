@@ -8,7 +8,7 @@
  */
 
 #include "Shader.h"
-
+#include "OS.h"
 #include "Utils.h"
 
 #include <iostream>
@@ -30,7 +30,7 @@ bool Shader::load(const char* code) {
 	
 	string vertexShaderCode;
 	string fragmentShaderCode;
-	string* currentShaderCode;
+	string* currentShaderCode = NULL;
 
 	for (int i=0; i<lines.size(); i++) {
 		if (lines[i].compare("//[VERT]") == 0) {			
@@ -39,7 +39,7 @@ bool Shader::load(const char* code) {
 		else if (lines[i].compare("//[FRAG]") == 0) {
 			currentShaderCode = &fragmentShaderCode;
 		}
-		else {
+		else if (currentShaderCode != NULL){
 			*currentShaderCode += lines[i] + "\n";
 		}		
 	}
@@ -49,7 +49,7 @@ bool Shader::load(const char* code) {
 	GLuint fragShaderObject = compileShader(GL_FRAGMENT_SHADER, fragmentShaderCode.c_str());
 	//cout << fragmentShaderCode;		
 	programObject = compileProgram(vertShaderObject, fragShaderObject);
-	return true;
+	return vertShaderObject && fragShaderObject;
 }
 
 //------------------------------------------------------------------------------
@@ -67,15 +67,13 @@ GLuint Shader::compileShader(GLenum type, const char *shaderSrc) {
 	GLint compiled;
 	glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
 	if(!compiled ) {
-		cout << "error" << "\n";
 		GLint infoLen = 0;
 		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLen);
 		
 		if(infoLen > 1 ) {
 			char* infoLog = (char*)malloc(sizeof(char) * infoLen);
 			glGetShaderInfoLog(shader, infoLen, NULL, infoLog);
-			printf(infoLog);
-			cout << "\n";
+			printf("%s", infoLog);
 			free(infoLog);
 		}
 		
@@ -112,8 +110,7 @@ GLuint Shader::compileProgram(GLuint vertexShaderObject, GLuint fragmentShaderOb
 		if(infoLen > 1) {
 			char* infoLog = (char*)malloc (sizeof(char) * infoLen);
 			glGetProgramInfoLog(programObject, infoLen, NULL, infoLog);
-			printf(infoLog);
-			cout << "\n";
+			printf("%s", infoLog);
 			free(infoLog);
 		}
 		
@@ -148,6 +145,30 @@ void Shader::setUniform(const char* name, float value) {
 void Shader::setUniform(const char* name, mat4& value) {
 	int location = glGetUniformLocation(programObject, name);
 	glUniformMatrix4fv(location, 1, 0, &(value[0][0]));
+}
+	
+//------------------------------------------------------------------------------
+	
+void Shader::setUniform(const char* name, vec3& value) {
+	int location = glGetUniformLocation(programObject, name);
+	glUniform3fv(location, 1, &(value[0]));
+}
+	
+//------------------------------------------------------------------------------
+	
+Shader* Shader::fromFile(const char* fileName) {
+	const char* shaderCode = osLoadTextFile(fileName);
+	if (shaderCode) {
+		Shader* shader = new Shader();
+		if (!shader->load(shaderCode)) {
+			Log::msg("Error: Invalid Shader code in '%s'", fileName);
+		}
+		return shader;
+	}
+	else {
+		Log::msg("Error: Failed to load Shader from '%s'", fileName);
+		return NULL;
+	}
 }
 	
 //------------------------------------------------------------------------------

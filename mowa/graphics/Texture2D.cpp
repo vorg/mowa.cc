@@ -23,10 +23,7 @@ Texture2D::Texture2D() {
 //------------------------------------------------------------------------------
 	
 Texture2D::~Texture2D() {
-	Log::msg("Texture2D-");
-	if (textureObject > 0) {
-		glDeleteTextures(1, &textureObject);
-	}
+	Log::msg("Texture2D-");	
 }
 	
 //------------------------------------------------------------------------------
@@ -44,6 +41,8 @@ Texture2D* Texture2D::create(int width, int height) {
 	glBindTexture(texture2D->textureTarget, texture2D->textureObject);
 	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameterf(texture2D->textureTarget, GL_TEXTURE_WRAP_S, GL_REPEAT );
+	glTexParameterf(texture2D->textureTarget, GL_TEXTURE_WRAP_T, GL_REPEAT );
 	//glTexParameteri(textureTarget, GL_TEXTURE_WRAP_S, GL_CLAMP);
 	//glTexParameteri(textureTarget, GL_TEXTURE_WRAP_T, GL_CLAMP);	
 	//if (mipmap) {
@@ -98,30 +97,26 @@ Texture2D* Texture2D::generateChecker() {
 //------------------------------------------------------------------------------
 	
 Texture2D* Texture2D::fromFile(const char* fileName) {	
-	unsigned char* imageData = osLoadImageFile(fileName);
+	unsigned int width;
+	unsigned int height;
+	unsigned char* imageData = osLoadImageFile(fileName, &width, &height);
 	if (imageData) {
-		Texture2D* texture2D = Texture2D::create(256, 256);
-		glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, 256, 256, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
+		Texture2D* texture2D = Texture2D::create(width, height);
+		glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
 		free(imageData);		
 		glGenerateMipmap(texture2D->textureTarget);
 		glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-		glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		return texture2D;		
 	}
 	else {
+		Log::msg("Error: Failed to load Texture2D from '%s'", fileName);
 		return Texture2D::generateChecker();
 	}
-	return NULL;
 }
 	
 //------------------------------------------------------------------------------
-	
-void Texture2D::bind() {
-	glBindTexture(GL_TEXTURE_2D, textureObject);
-}
-	
-//------------------------------------------------------------------------------
-	
+		
 }
 
 

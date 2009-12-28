@@ -64,17 +64,15 @@ void DistortedSphere::draw() {
 	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	mat4 projectionMatrix = mat4::perspectiveMatrix(60.00, 480.0f/320.0f, 0.1f, 100.0f);
-	mat4 modelviewMatrix = mat4::translationMatrix(0, 0, -3)
-		* mat4::rotationMatrix(vec3(0,1,0), 5*Timer::getInstance().getTime()*30)
+	mat4 modelViewMatrix = mat4::translationMatrix(0, 0, -3)
+	* mat4::rotationMatrix(vec3(0,1,0), 5*Timer::getInstance().getTime()*30)
 	* mat4::rotationMatrix(vec3(1,0,0), 3*Timer::getInstance().getTime()*30)
 	* mat4::scaleMatrix(0.5, 0.5, 0.5);
-	mat4 invModelviewMatrix = invert(modelviewMatrix);
 	
 	
 	shader->bind();
 	shader->setUniform("projectionMatrix", projectionMatrix);
-	shader->setUniform("modelviewMatrix", modelviewMatrix);
-	shader->setUniform("invModelviewMatrix", invModelviewMatrix);
+	shader->setUniform("modelViewMatrix", modelViewMatrix);
 	shader->setUniform("time", Timer::getInstance().getTime());
 	if (strength > 0.3) {
 		strength *= 0.99;

@@ -37,8 +37,8 @@ public:
 	void createLut();	
 	void draw();	
 	
-	void onMouseDown(int x, int y);
-	void onMouseMove(int x, int y);	
+	void onMouseDown(int x, int y, int key);
+	void onMouseMove(int x, int y, int key);	
 };
 
 #endif LUT_DISTORT_H

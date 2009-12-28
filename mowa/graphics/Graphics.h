@@ -18,4 +18,4 @@
 extern void osRenderbufferStorage();
 extern void osPresentRenderbuffer();
 
-#endif FLOW_GL_H
+#endif FLOW_GRAPHICS_H

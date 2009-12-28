@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef FLOW_SPHERE_GEN_H
-#define FLOW_SPHERE_GEN_H
+#ifndef FLOW_SPHERE_H
+#define FLOW_SPHERE_H
 
 #include "Geometry.h"
 
@@ -18,7 +18,6 @@ namespace flow {
 	
 class Sphere : public Geometry {
 public:
-	Sphere();
 	Sphere(float r, unsigned int nsides, unsigned int nsegments);
 	~Sphere();
 	
@@ -30,5 +29,5 @@ private:
 	
 } //namespace flow
 
-#endif FLOW_SPHERE_GEN_H
+#endif FLOW_SPHERE_H
 

@@ -19,9 +19,27 @@
 		9335D80B10E513F1003F54B1 /* stripes.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335D80A10E513F1003F54B1 /* stripes.png */; };
 		9335D8A210E51AF8003F54B1 /* stripes2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335D8A110E51AF8003F54B1 /* stripes2.png */; };
 		9335D8AB10E51BB9003F54B1 /* stripes3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335D8AA10E51BB9003F54B1 /* stripes3.png */; };
-		9335D99110E525B2003F54B1 /* envMap.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 9335D98410E5255C003F54B1 /* envMap.glsl */; };
-		9335D9C410E5294F003F54B1 /* sphereMap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9335D9C310E5294F003F54B1 /* sphereMap.jpg */; };
 		9335D9EB10E537B0003F54B1 /* ExampleTexturing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9335D9EA10E537B0003F54B1 /* ExampleTexturing.cpp */; };
+		9335DB2210E62A2E003F54B1 /* ExampleTexturingBasic.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 9335DA8510E53CA2003F54B1 /* ExampleTexturingBasic.glsl */; };
+		9335DB2310E62A2E003F54B1 /* ExampleTexturingSEM.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 9335DA8F10E53D89003F54B1 /* ExampleTexturingSEM.glsl */; };
+		9335DC3E10E6C03C003F54B1 /* metal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9335DC3D10E6C03C003F54B1 /* metal.jpg */; };
+		9335DC9410E6C2C4003F54B1 /* metal128.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9335DC9310E6C2C4003F54B1 /* metal128.jpg */; };
+		9335DCBC10E6C463003F54B1 /* rainbow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9335DCBB10E6C463003F54B1 /* rainbow.jpg */; };
+		9335DCDB10E6C575003F54B1 /* rainbow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335DCDA10E6C575003F54B1 /* rainbow.png */; };
+		9335E9F910E6D0B2003F54B1 /* Torus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9335E9F810E6D0B2003F54B1 /* Torus.cpp */; };
+		9335ED5310E7F33D003F54B1 /* ExampleTexturingSEMMetal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9335DD9110E6CAFF003F54B1 /* ExampleTexturingSEMMetal.jpg */; };
+		9335ED5510E7F34F003F54B1 /* ExampleTexturingSEMRoom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9335D9C310E5294F003F54B1 /* ExampleTexturingSEMRoom.jpg */; };
+		9335ED5610E7F36C003F54B1 /* ExampleTexturingSEMSpecularMap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9335DC2410E6BDFB003F54B1 /* ExampleTexturingSEMSpecularMap.jpg */; };
+		9335ED7010E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335ED6E10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png */; };
+		9335ED7110E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335ED6F10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png */; };
+		9370896910E818CA00A003B0 /* skyNegX.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896310E818CA00A003B0 /* skyNegX.png */; };
+		9370896A10E818CA00A003B0 /* skyNegY.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896410E818CA00A003B0 /* skyNegY.png */; };
+		9370896B10E818CA00A003B0 /* skyNegZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896510E818CA00A003B0 /* skyNegZ.png */; };
+		9370896C10E818CA00A003B0 /* skyPosX.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896610E818CA00A003B0 /* skyPosX.png */; };
+		9370896D10E818CA00A003B0 /* skyPosY.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896710E818CA00A003B0 /* skyPosY.png */; };
+		9370896E10E818CA00A003B0 /* skyPosZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 9370896810E818CA00A003B0 /* skyPosZ.png */; };
+		9370899E10E819D800A003B0 /* TextureCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9370899D10E819D800A003B0 /* TextureCube.cpp */; };
+		937089B810E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 937089B710E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl */; };
 		93B08FD310E4CF08002FF7E9 /* LutDistort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93B08FD210E4CF08002FF7E9 /* LutDistort.cpp */; };
 		93B08FEA10E4CFF4002FF7E9 /* basic.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 93F1582610E138C300DC5171 /* basic.glsl */; };
 		93B08FEB10E4CFF4002FF7E9 /* basicTexture.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 93F1582710E138C300DC5171 /* basicTexture.glsl */; };
@@ -65,10 +83,32 @@
 		9335D80A10E513F1003F54B1 /* stripes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stripes.png; sourceTree = "<group>"; };
 		9335D8A110E51AF8003F54B1 /* stripes2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stripes2.png; sourceTree = "<group>"; };
 		9335D8AA10E51BB9003F54B1 /* stripes3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stripes3.png; sourceTree = "<group>"; };
-		9335D98410E5255C003F54B1 /* envMap.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = envMap.glsl; sourceTree = "<group>"; };
-		9335D9C310E5294F003F54B1 /* sphereMap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sphereMap.jpg; sourceTree = "<group>"; };
+		9335D9C310E5294F003F54B1 /* ExampleTexturingSEMRoom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ExampleTexturingSEMRoom.jpg; sourceTree = "<group>"; };
 		9335D9E910E537B0003F54B1 /* ExampleTexturing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleTexturing.h; sourceTree = "<group>"; };
 		9335D9EA10E537B0003F54B1 /* ExampleTexturing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExampleTexturing.cpp; sourceTree = "<group>"; };
+		9335DA8510E53CA2003F54B1 /* ExampleTexturingBasic.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExampleTexturingBasic.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		9335DA8F10E53D89003F54B1 /* ExampleTexturingSEM.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExampleTexturingSEM.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		9335DC2410E6BDFB003F54B1 /* ExampleTexturingSEMSpecularMap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ExampleTexturingSEMSpecularMap.jpg; sourceTree = "<group>"; };
+		9335DC3D10E6C03C003F54B1 /* metal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = metal.jpg; sourceTree = "<group>"; };
+		9335DC9310E6C2C4003F54B1 /* metal128.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = metal128.jpg; sourceTree = "<group>"; };
+		9335DCBB10E6C463003F54B1 /* rainbow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rainbow.jpg; sourceTree = "<group>"; };
+		9335DCDA10E6C575003F54B1 /* rainbow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainbow.png; sourceTree = "<group>"; };
+		9335DD9110E6CAFF003F54B1 /* ExampleTexturingSEMMetal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ExampleTexturingSEMMetal.jpg; sourceTree = "<group>"; };
+		9335E9F710E6D0B2003F54B1 /* Torus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torus.h; sourceTree = "<group>"; };
+		9335E9F810E6D0B2003F54B1 /* Torus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Torus.cpp; sourceTree = "<group>"; };
+		9335ED6E10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ExampleTexturingSEMLightProbeWarm.png; sourceTree = "<group>"; };
+		9335ED6F10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ExampleTexturingSEMLightProbeCold.png; sourceTree = "<group>"; };
+		93707BE410E8136800A003B0 /* copy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = copy; path = ../../copy; sourceTree = SOURCE_ROOT; };
+		9370896310E818CA00A003B0 /* skyNegX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyNegX.png; sourceTree = "<group>"; };
+		9370896410E818CA00A003B0 /* skyNegY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyNegY.png; sourceTree = "<group>"; };
+		9370896510E818CA00A003B0 /* skyNegZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyNegZ.png; sourceTree = "<group>"; };
+		9370896610E818CA00A003B0 /* skyPosX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyPosX.png; sourceTree = "<group>"; };
+		9370896710E818CA00A003B0 /* skyPosY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyPosY.png; sourceTree = "<group>"; };
+		9370896810E818CA00A003B0 /* skyPosZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyPosZ.png; sourceTree = "<group>"; };
+		9370896F10E8190200A003B0 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		9370899C10E819D800A003B0 /* TextureCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureCube.h; sourceTree = "<group>"; };
+		9370899D10E819D800A003B0 /* TextureCube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureCube.cpp; sourceTree = "<group>"; };
+		937089B710E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExampleTexturingCubeMapping.glsl; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		93B08FD110E4CF08002FF7E9 /* LutDistort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutDistort.h; sourceTree = "<group>"; };
 		93B08FD210E4CF08002FF7E9 /* LutDistort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LutDistort.cpp; sourceTree = "<group>"; };
 		93B0913110E4D392002FF7E9 /* clouds_mirror.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds_mirror.png; sourceTree = "<group>"; };
@@ -156,6 +196,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				93707BE410E8136800A003B0 /* copy */,
 				93F1594010E13DFA00DC5171 /* mowa */,
 				93F1581C10E138C300DC5171 /* Demo */,
 				93F1582410E138C300DC5171 /* Res */,
@@ -198,10 +239,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9370896210E818CA00A003B0 /* cubemaps */ = {
+			isa = PBXGroup;
+			children = (
+				9370896310E818CA00A003B0 /* skyNegX.png */,
+				9370896410E818CA00A003B0 /* skyNegY.png */,
+				9370896510E818CA00A003B0 /* skyNegZ.png */,
+				9370896610E818CA00A003B0 /* skyPosX.png */,
+				9370896710E818CA00A003B0 /* skyPosY.png */,
+				9370896810E818CA00A003B0 /* skyPosZ.png */,
+			);
+			path = cubemaps;
+			sourceTree = "<group>";
+		};
 		93B0913010E4D392002FF7E9 /* img */ = {
 			isa = PBXGroup;
 			children = (
-				9335D9C310E5294F003F54B1 /* sphereMap.jpg */,
+				9370896210E818CA00A003B0 /* cubemaps */,
+				9335DCDA10E6C575003F54B1 /* rainbow.png */,
+				9335DCBB10E6C463003F54B1 /* rainbow.jpg */,
+				9335DC9310E6C2C4003F54B1 /* metal128.jpg */,
+				9335DC3D10E6C03C003F54B1 /* metal.jpg */,
 				9335D8AA10E51BB9003F54B1 /* stripes3.png */,
 				9335D8A110E51AF8003F54B1 /* stripes2.png */,
 				9335D80A10E513F1003F54B1 /* stripes.png */,
@@ -209,6 +267,11 @@
 				9335D7E410E512A1003F54B1 /* plazma.png */,
 				9335D7E510E512A1003F54B1 /* rabbit.png */,
 				93B0913110E4D392002FF7E9 /* clouds_mirror.png */,
+				9335ED6E10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png */,
+				9335ED6F10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png */,
+				9335DD9110E6CAFF003F54B1 /* ExampleTexturingSEMMetal.jpg */,
+				9335DC2410E6BDFB003F54B1 /* ExampleTexturingSEMSpecularMap.jpg */,
+				9335D9C310E5294F003F54B1 /* ExampleTexturingSEMRoom.jpg */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -216,10 +279,10 @@
 		93F1581C10E138C300DC5171 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				93F1581D10E138C300DC5171 /* DirectMemoryAccess.cpp */,
 				93F1581E10E138C300DC5171 /* DirectMemoryAccess.h */,
-				93F1581F10E138C300DC5171 /* DistortedSphere.cpp */,
+				93F1581D10E138C300DC5171 /* DirectMemoryAccess.cpp */,
 				93F1582010E138C300DC5171 /* DistortedSphere.h */,
+				93F1581F10E138C300DC5171 /* DistortedSphere.cpp */,
 				93F1582110E138C300DC5171 /* Effect.h */,
 				93F1582210E138C300DC5171 /* GLApp.cpp */,
 				93F1582310E138C300DC5171 /* GLApp.h */,
@@ -250,7 +313,9 @@
 				93F1582810E138C300DC5171 /* basicTransform.glsl */,
 				9310566410E4CDF400CA29D7 /* lutDistort.glsl */,
 				93E5930610E2819D0096F258 /* raytracedTunnel.glsl */,
-				9335D98410E5255C003F54B1 /* envMap.glsl */,
+				9335DA8510E53CA2003F54B1 /* ExampleTexturingBasic.glsl */,
+				9335DA8F10E53D89003F54B1 /* ExampleTexturingSEM.glsl */,
+				937089B710E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -272,8 +337,10 @@
 			isa = PBXGroup;
 			children = (
 				93F1594210E13DFA00DC5171 /* Geometry.h */,
-				93F1594310E13DFA00DC5171 /* Sphere.cpp */,
 				93F1594410E13DFA00DC5171 /* Sphere.h */,
+				93F1594310E13DFA00DC5171 /* Sphere.cpp */,
+				9335E9F710E6D0B2003F54B1 /* Torus.h */,
+				9335E9F810E6D0B2003F54B1 /* Torus.cpp */,
 			);
 			path = geom;
 			sourceTree = "<group>";
@@ -289,6 +356,9 @@
 				93F1594B10E13DFA00DC5171 /* Texture2D.h */,
 				93F1594C10E13DFA00DC5171 /* VertexStream.cpp */,
 				93F1594D10E13DFA00DC5171 /* VertexStream.h */,
+				9370896F10E8190200A003B0 /* Texture.h */,
+				9370899C10E819D800A003B0 /* TextureCube.h */,
+				9370899D10E819D800A003B0 /* TextureCube.cpp */,
 			);
 			path = graphics;
 			sourceTree = "<group>";
@@ -381,8 +451,24 @@
 				9335D80B10E513F1003F54B1 /* stripes.png in Resources */,
 				9335D8A210E51AF8003F54B1 /* stripes2.png in Resources */,
 				9335D8AB10E51BB9003F54B1 /* stripes3.png in Resources */,
-				9335D99110E525B2003F54B1 /* envMap.glsl in Resources */,
-				9335D9C410E5294F003F54B1 /* sphereMap.jpg in Resources */,
+				9335DB2210E62A2E003F54B1 /* ExampleTexturingBasic.glsl in Resources */,
+				9335DB2310E62A2E003F54B1 /* ExampleTexturingSEM.glsl in Resources */,
+				9335DC3E10E6C03C003F54B1 /* metal.jpg in Resources */,
+				9335DC9410E6C2C4003F54B1 /* metal128.jpg in Resources */,
+				9335DCBC10E6C463003F54B1 /* rainbow.jpg in Resources */,
+				9335DCDB10E6C575003F54B1 /* rainbow.png in Resources */,
+				9335ED5310E7F33D003F54B1 /* ExampleTexturingSEMMetal.jpg in Resources */,
+				9335ED5510E7F34F003F54B1 /* ExampleTexturingSEMRoom.jpg in Resources */,
+				9335ED5610E7F36C003F54B1 /* ExampleTexturingSEMSpecularMap.jpg in Resources */,
+				9335ED7010E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png in Resources */,
+				9335ED7110E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png in Resources */,
+				9370896910E818CA00A003B0 /* skyNegX.png in Resources */,
+				9370896A10E818CA00A003B0 /* skyNegY.png in Resources */,
+				9370896B10E818CA00A003B0 /* skyNegZ.png in Resources */,
+				9370896C10E818CA00A003B0 /* skyPosX.png in Resources */,
+				9370896D10E818CA00A003B0 /* skyPosY.png in Resources */,
+				9370896E10E818CA00A003B0 /* skyPosZ.png in Resources */,
+				937089B810E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +497,8 @@
 				93E5930510E27F5F0096F258 /* RaytracedTunnel.cpp in Sources */,
 				93B08FD310E4CF08002FF7E9 /* LutDistort.cpp in Sources */,
 				9335D9EB10E537B0003F54B1 /* ExampleTexturing.cpp in Sources */,
+				9335E9F910E6D0B2003F54B1 /* Torus.cpp in Sources */,
+				9370899E10E819D800A003B0 /* TextureCube.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

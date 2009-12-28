@@ -10,6 +10,9 @@
 #include "OS.h"
 #include <math.h>
 
+#ifndef FLOW_TIMER_H
+#define FLOW_TIMER_H
+
 namespace flow {
 	
 //------------------------------------------------------------------------------
@@ -115,4 +118,6 @@ public:
 //------------------------------------------------------------------------------
 	
 } //end namespace flow
+
+#endif FLOW_TIMER_H
 

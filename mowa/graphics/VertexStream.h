@@ -58,7 +58,8 @@ public:
 	unsigned int	getNumIndices();
 	void			setNumIndices(unsigned int numIndices);	
 	unsigned short*	getIndices();
-	
+
+	//quads?
 	unsigned int	getNumIndices2();
 	void			setNumIndices2(unsigned int numIndices);	
 	unsigned short*	getIndices2();

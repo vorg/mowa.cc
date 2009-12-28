@@ -33,35 +33,37 @@ extern const char* osLoadTextFile(const char* fileName) {
 	NSString *filePathString = [[NSBundle mainBundle] pathForResource:[fileNameString stringByDeletingPathExtension] ofType:[fileNameString pathExtension]];  	
 	const char* contents = (const char*)[[NSString stringWithContentsOfFile:filePathString encoding:NSUTF8StringEncoding error:nil] UTF8String];
 	if (!contents) {
-		NSLog(@"Failed to load file %s", fileName);
+		return NULL;
 	}
-	//[fileNameString release];
-	//[filePathString release];
 	return contents;	
 }
 
-unsigned char* osLoadImageFile(const char* fileName) {
+unsigned char* osLoadImageFile(const char* fileName, unsigned int* width, unsigned int *height) {
 	NSString* fileNameString = [NSString stringWithCString:fileName length:strlen(fileName)];		
 	CGImageRef image;
 	CGContextRef imageContext;
 	GLubyte *imageData;
-	size_t	width, height;
+	size_t	w, h;
 	
 	image = [UIImage imageNamed:fileNameString].CGImage;
 	
 	if (image) {
-		width = CGImageGetWidth(image);
-		height = CGImageGetHeight(image);
-		imageData = (GLubyte *) malloc(width * height * 4);
-		imageContext = CGBitmapContextCreate(imageData, width, height, 8, width * 4, CGImageGetColorSpace(image), kCGImageAlphaPremultipliedLast);
-		CGContextDrawImage(imageContext, CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height), image);
+		w = CGImageGetWidth(image);
+		h = CGImageGetHeight(image);
+		*width = w;
+		*height = h;
+		NSLog(@"Image w:%d h:%d", w, h);
+		imageData = (GLubyte *) malloc(w * h * 4);
+		imageContext = CGBitmapContextCreate(imageData, w, h, 8, w * 4, CGImageGetColorSpace(image), kCGImageAlphaPremultipliedLast);
+		CGContextDrawImage(imageContext, CGRectMake(0.0, 0.0, (CGFloat)w, (CGFloat)h), image);
 		CGContextRelease(imageContext);
+		return imageData;
 	}
-	else {
-		NSLog(@"Failed to load file %s", fileName);
+	else {	
+		*width = 0;
+		*height = 0;
 		return NULL;
-	}
-	return imageData;
+	}	
 }
 
 @implementation GLView
@@ -82,6 +84,8 @@ unsigned char* osLoadImageFile(const char* fileName) {
 		app = new DirectMemoryAccess();
 		app->init();
 		app->update();
+		
+		[self setMultipleTouchEnabled:TRUE];
 		
 		animationTimer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)((1.0 / 60.0)) target:self selector:@selector(drawView:) userInfo:nil repeats:TRUE];
 		
@@ -105,12 +109,17 @@ unsigned char* osLoadImageFile(const char* fileName) {
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	CGPoint touchPos = [[touches anyObject] locationInView:self];
-	app->onMouseDown(touchPos.x, touchPos.y);
+	app->onMouseDown(touchPos.x, touchPos.y, [touches count]);
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	CGPoint touchPos = [[touches anyObject] locationInView:self];
-	app->onMouseMove(touchPos.x, touchPos.y);
+	app->onMouseMove(touchPos.x, touchPos.y, [touches count]);
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	CGPoint touchPos = [[touches anyObject] locationInView:self];
+	app->onMouseMove(touchPos.x, touchPos.y, [touches count]);
 }
 
 

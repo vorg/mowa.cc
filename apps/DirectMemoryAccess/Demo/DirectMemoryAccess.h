@@ -22,15 +22,14 @@ using namespace flow;
 class DirectMemoryAccess : public GLApp {
 private:
 	Effect* effect;
-	Effect* bg;
 protected:
 	void draw();
 public:
 	void init();
 	void dispose();	
-	void onMouseDown(int x, int y);
-	void onMouseUp(int x, int y);
-	void onMouseMove(int x, int y);
+	void onMouseDown(int x, int y, int key);
+	void onMouseUp(int x, int y, int key);
+	void onMouseMove(int x, int y, int key);
 };
 
 //------------------------------------------------------------------------------

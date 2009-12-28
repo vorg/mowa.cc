@@ -21,9 +21,9 @@ public:
 	
 	virtual void draw() {};	
 	
-	virtual void onMouseDown(int x, int y) {};
-	virtual void onMouseUp(int x, int y) {};	
-	virtual void onMouseMove(int x, int y) {};	
+	virtual void onMouseDown(int x, int y, int key = 1) {};
+	virtual void onMouseUp(int x, int y, int key = 1) {};	
+	virtual void onMouseMove(int x, int y, int key = 1) {};	
 };
 
 #endif EFFECT_H

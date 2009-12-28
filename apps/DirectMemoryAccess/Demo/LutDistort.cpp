@@ -30,7 +30,7 @@ LutDistort::LutDistort() {
 	const char* shaderCode = osLoadTextFile("lutDistort.glsl");
 	shader->load(shaderCode);
 	
-	textureClouds = Texture2D::fromFile("clouds_mirror.png");
+	////textureClouds = Texture2D::fromFile("clouds_mirror.png");
 	textureStripes = Texture2D::fromFile("stripes.png");
 	textureStripes3 = Texture2D::fromFile("stripes3.png");
 	textureChecker = Texture2D::generateChecker();	
@@ -135,8 +135,6 @@ void LutDistort::draw() {
 	glVertexAttribPointer(ATTRIB_TEXCOORD0, 2, GL_FLOAT, false, 0, texCoords);	
 	glEnableVertexAttribArray(ATTRIB_TEXCOORD0);	
 	
-	textureChecker->bind();
-	
 	glDepthMask(false);	
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices);		
 	glDepthMask(true);
@@ -144,13 +142,13 @@ void LutDistort::draw() {
 
 //------------------------------------------------------------------------------
 
-void LutDistort::onMouseDown(int x, int y) {
-		mode = (mode + 1) % numModes;
+void LutDistort::onMouseDown(int x, int y, int key) {
+	mode = (mode + 1) % numModes;
 }
 
 //------------------------------------------------------------------------------
 
-void LutDistort::onMouseMove(int x, int y) {
+void LutDistort::onMouseMove(int x, int y, int key) {
 	crossFade = x / 480.0f;
 	Log::msg("%f", crossFade);
 }

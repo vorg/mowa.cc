@@ -13,7 +13,7 @@
 //------------------------------------------------------------------------------
 
 extern const char* osLoadTextFile(const char* fileName);
-extern unsigned char* osLoadImageFile(const char* fileName);
+extern unsigned char* osLoadImageFile(const char* fileName, unsigned int* width, unsigned int *height);
 extern float osGetTime(); //time from the beginning of application start
 
 //------------------------------------------------------------------------------

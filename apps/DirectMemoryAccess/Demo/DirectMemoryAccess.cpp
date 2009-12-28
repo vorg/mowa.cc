@@ -16,6 +16,7 @@
 #include "DistortedSphere.h"
 #include "RaytracedTunnel.h"
 #include "LutDistort.h"
+#include "ExampleTexturing.h"
 
 using namespace flow;
 
@@ -25,8 +26,8 @@ void DirectMemoryAccess::init() {
 	Log::msg("DirectMemoryAccess::init");
 	GLApp::init();
 	
-	bg = new LutDistort();	
-	effect = new DistortedSphere();
+	effect = new ExampleTexturing();
+	//effect = new LutDistort();
 }
 
 //------------------------------------------------------------------------------
@@ -36,8 +37,7 @@ void DirectMemoryAccess::draw() {
 	if (Timer::getInstance().getTotalFrameCount() % 100 == 33) {
 		Log::msg("draw %f", Timer::getInstance().getFPS());
 	}				
-	bg->draw();
-	//effect->draw();
+	effect->draw();
 }
 
 //------------------------------------------------------------------------------
@@ -47,31 +47,24 @@ void DirectMemoryAccess::dispose() {
 		delete effect;
 		effect = NULL;
 	}
-	if (bg) {
-		delete bg;
-		bg = NULL;
-	}
 }
 
 //------------------------------------------------------------------------------
 
-void DirectMemoryAccess::onMouseDown(int x, int y) {
-	effect->onMouseDown(x, y);
-	bg->onMouseDown(x, y);
+void DirectMemoryAccess::onMouseDown(int x, int y, int key = 1) {
+	effect->onMouseDown(x, y, key);
 }
 
 //------------------------------------------------------------------------------
 
-void DirectMemoryAccess::onMouseUp(int x, int y) {
-	effect->onMouseUp(x, y);
-	bg->onMouseUp(x, y);
+void DirectMemoryAccess::onMouseUp(int x, int y, int key = 1) {
+	effect->onMouseUp(x, y, key);
 }
 
 //------------------------------------------------------------------------------
 
-void DirectMemoryAccess::onMouseMove(int x, int y) {
-	effect->onMouseMove(x, y);
-	bg->onMouseMove(x, y);	
+void DirectMemoryAccess::onMouseMove(int x, int y, int key = 1) {
+	effect->onMouseMove(x, y, key);
 }
 
 //------------------------------------------------------------------------------
