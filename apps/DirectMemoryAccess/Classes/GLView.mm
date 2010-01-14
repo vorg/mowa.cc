@@ -52,7 +52,7 @@ unsigned char* osLoadImageFile(const char* fileName, unsigned int* width, unsign
 		h = CGImageGetHeight(image);
 		*width = w;
 		*height = h;
-		NSLog(@"Image w:%d h:%d", w, h);
+		//NSLog(@"Image w:%d h:%d", w, h);
 		imageData = (GLubyte *) malloc(w * h * 4);
 		imageContext = CGBitmapContextCreate(imageData, w, h, 8, w * 4, CGImageGetColorSpace(image), kCGImageAlphaPremultipliedLast);
 		CGContextDrawImage(imageContext, CGRectMake(0.0, 0.0, (CGFloat)w, (CGFloat)h), image);
@@ -83,7 +83,7 @@ unsigned char* osLoadImageFile(const char* fileName, unsigned int* width, unsign
 		//app = new GLApp();
 		app = new DirectMemoryAccess();
 		app->init();
-		app->update();
+		//app->update();
 		
 		[self setMultipleTouchEnabled:TRUE];
 		
@@ -119,7 +119,7 @@ unsigned char* osLoadImageFile(const char* fileName, unsigned int* width, unsign
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	CGPoint touchPos = [[touches anyObject] locationInView:self];
-	app->onMouseMove(touchPos.x, touchPos.y, [touches count]);
+	app->onMouseUp(touchPos.x, touchPos.y, [touches count]);
 }
 
 

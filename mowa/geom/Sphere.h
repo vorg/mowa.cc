@@ -18,7 +18,7 @@ namespace flow {
 	
 class Sphere : public Geometry {
 public:
-	Sphere(float r, unsigned int nsides, unsigned int nsegments);
+	Sphere(float r=1, unsigned int nsides=36, unsigned int nsegments=36);
 	~Sphere();
 	
 private:			

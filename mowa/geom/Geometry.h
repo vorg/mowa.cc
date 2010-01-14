@@ -20,6 +20,8 @@ protected:
 	VertexStream vertexStream;
 public:
 	VertexStream& getVertexStream() { return vertexStream; }
+	
+	void invertNormals();
 };	
 //------------------------------------------------------------------------------
 	

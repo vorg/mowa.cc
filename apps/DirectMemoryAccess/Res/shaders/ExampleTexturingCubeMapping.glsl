@@ -38,7 +38,7 @@ varying highp vec2 texCoord0Var;
 
 void main()
 {
-	gl_FragColor = vec4(0.1) + 1.0 * textureCube(tex0, reflectDir) + 0.4 * texture2D(tex1, texCoord0Var);	
+	gl_FragColor = vec4(0.1) + 1.0 * textureCube(tex0, reflectDir) + 0.0 * texture2D(tex1, texCoord0Var);	
 	gl_FragColor *= gl_FragColor;
 	
 }

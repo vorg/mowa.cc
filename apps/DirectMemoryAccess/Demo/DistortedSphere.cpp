@@ -33,7 +33,7 @@ enum {
 //------------------------------------------------------------------------------
 
 DistortedSphere::DistortedSphere() {	
-	Log::msg("DistortedSphere+");
+	//Log::msg("DistortedSphere+");
 
 	shader = new Shader();
 	const char* shaderCode = osLoadTextFile("envMap.glsl");
@@ -51,7 +51,7 @@ DistortedSphere::DistortedSphere() {
 //------------------------------------------------------------------------------
 
 DistortedSphere::~DistortedSphere() {
-	Log::msg("DistortedSphere-");	
+	//Log::msg("DistortedSphere-");	
 	delete texture;
 	delete shader;
 	delete sphere;

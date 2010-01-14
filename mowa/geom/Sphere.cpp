@@ -15,8 +15,8 @@ namespace flow {
 	
 //------------------------------------------------------------------------------
 	
-Sphere::Sphere(float r=1, unsigned int nsides=36, unsigned int nsegments=36) {	
-	Log::msg("Sphere::Sphere r:%f nsides:%d nsegments:%d", r, nsides, nsegments);
+Sphere::Sphere(float r, unsigned int nsides, unsigned int nsegments) {	
+	//Log::msg("Sphere::Sphere r:%f nsides:%d nsegments:%d", r, nsides, nsegments);
 	vertexStream.addAttrib("position", TYPE_VEC3);
 	vertexStream.addAttrib("normal", TYPE_VEC3);
 	vertexStream.addAttrib("texCoord0", TYPE_VEC2);
@@ -48,7 +48,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 	vertexStream.setNumIndices(estimatedNumPoints * 6);
 	vertexStream.setNumIndices2(estimatedNumPoints * 8);
 	
-	Log::msg("Sphere::genSphere numPoints:%d numIndices:%d", estimatedNumPoints, estimatedNumPoints*6);		
+	//Log::msg("Sphere::genSphere numPoints:%d numIndices:%d", estimatedNumPoints, estimatedNumPoints*6);		
 	
 	VertexAttrib* posAttrib = vertexStream.getAttrib("position", TYPE_VEC3);
 	vec3* posBuf = (vec3*)posAttrib->getBuffer();
@@ -122,7 +122,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 		}
 	}
 	
-	Log::msg("	vertexStream %d .numAttribs: %d", &vertexStream, vertexStream.getNumAttribs());
+	//Log::msg("	vertexStream %d .numAttribs: %d", &vertexStream, vertexStream.getNumAttribs());
 }
 
 //------------------------------------------------------------------------------

@@ -16,8 +16,8 @@ namespace flow {
 
 //------------------------------------------------------------------------------
 
-Torus::Torus(float R=1, float r=0.3, unsigned int nsides=36, unsigned int nsegments=36) {	
-	Log::msg("Torus::Torus R:%f r:%f nsides:%d nsegments:%d", R, r, nsides, nsegments);
+Torus::Torus(float R, float r, unsigned int nsides, unsigned int nsegments) {	
+	//Log::msg("Torus::Torus R:%f r:%f nsides:%d nsegments:%d", R, r, nsides, nsegments);
 	vertexStream.addAttrib("position", TYPE_VEC3);
 	vertexStream.addAttrib("normal", TYPE_VEC3);
 	vertexStream.addAttrib("texCoord0", TYPE_VEC2);
@@ -50,7 +50,7 @@ void Torus::genTorus(float R, float r, unsigned int nsides, unsigned int nsegmen
 	vertexStream.setNumIndices(estimatedNumPoints * 6);
 	vertexStream.setNumIndices2(estimatedNumPoints * 8);
 	
-	Log::msg("Torus::genTorus numPoints:%d numIndices:%d dtheta:%f dphi:%f", estimatedNumPoints, estimatedNumPoints*6, dtheta, dphi);		
+	//Log::msg("Torus::genTorus numPoints:%d numIndices:%d dtheta:%f dphi:%f", estimatedNumPoints, estimatedNumPoints*6, dtheta, dphi);		
 	
 	VertexAttrib* posAttrib = vertexStream.getAttrib("position", TYPE_VEC3);
 	vec3* posBuf = (vec3*)posAttrib->getBuffer();
@@ -128,7 +128,7 @@ void Torus::genTorus(float R, float r, unsigned int nsides, unsigned int nsegmen
 		}
 	}
 	
-	Log::msg(" vertexStream %d .numAttribs: %d", &vertexStream, vertexStream.getNumAttribs());
+	//Log::msg(" vertexStream %d .numAttribs: %d", &vertexStream, vertexStream.getNumAttribs());
 }
 
 //------------------------------------------------------------------------------

@@ -24,21 +24,21 @@ enum {
 //------------------------------------------------------------------------------
 
 LutDistort::LutDistort() {	
-	Log::msg("LutDistort+");
+	//Log::msg("LutDistort+");
 	
 	shader = new Shader();
 	const char* shaderCode = osLoadTextFile("lutDistort.glsl");
 	shader->load(shaderCode);
 	
-	////textureClouds = Texture2D::fromFile("clouds_mirror.png");
+	textureClouds = Texture2D::fromFile("clouds_mirror.png");
 	textureStripes = Texture2D::fromFile("stripes.png");
 	textureStripes3 = Texture2D::fromFile("stripes3.png");
 	textureChecker = Texture2D::generateChecker();	
 	
-	const char* extensions = (const char*)glGetString(GL_EXTENSIONS);
-	const char* ext = "OES_texture_float";
-	char* pos = strstr(extensions, ext);
-	Log::msg("%s:%d", ext, pos);
+	//const char* extensions = (const char*)glGetString(GL_EXTENSIONS);
+	//const char* ext = "OES_texture_float";
+	//char* pos = strstr(extensions, ext);
+	//Log::msg("%s:%d", ext, pos);
 		
 	numModes = 9;
 	mode = numModes-1;
@@ -48,7 +48,7 @@ LutDistort::LutDistort() {
 //------------------------------------------------------------------------------
 
 LutDistort::~LutDistort() {
-	Log::msg("LutDistort-");	
+	//Log::msg("LutDistort-");	
 	delete textureClouds;
 	delete textureStripes;
 	delete textureStripes3;	
@@ -80,7 +80,8 @@ void LutDistort::createLut() {
 
 //------------------------------------------------------------------------------
 
-void LutDistort::draw() {			
+void LutDistort::draw() {		
+
 	glClearColor(0, 1, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glDepthMask(false);
@@ -105,9 +106,10 @@ void LutDistort::draw() {
 	static unsigned short indices[] = {0, 1, 2, 3, 4, 5};
 	
 	shader->bind();
+
 	shader->setUniform("time", Timer::getInstance().getTime());
 	shader->setUniform("diffuseTex", 0);	
-	shader->setUniform("mode", mode);	
+	shader->setUniform("mode", (float)mode);	
 	shader->setUniform("crossFade", crossFade);	
 	
 	//Log::msg("time: %f", Timer::getInstance().getTime());

@@ -141,7 +141,7 @@ void VertexStream::setNumVertices(unsigned int numVertices) {
 	this->numVertices = numVertices;
 	
 	for(int i=0; i<attribs.size(); i++) {
-		Log::msg(" %d %s", i, attribs[i]->getVertexAttribType().c_str());
+		//Log::msg(" %d %s", i, attribs[i]->getVertexAttribType().c_str());
 		attribs[i]->setNumVertices(numVertices);
 	}
 }

@@ -16,13 +16,13 @@ namespace flow {
 //------------------------------------------------------------------------------
 
 TextureCube::TextureCube() {
-	Log::msg("TextureCube+");	
+	//Log::msg("TextureCube+");	
 }
 
 //------------------------------------------------------------------------------
 
 TextureCube::~TextureCube() {
-	Log::msg("TextureCube-");	
+	//Log::msg("TextureCube-");	
 }
 	
 //------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ TextureCube* TextureCube::fromFile(const char* fileName) {
 	glTexParameteri(texture->textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameterf(texture->textureTarget, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
 	glTexParameterf(texture->textureTarget, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glTexParameterf(texture->textureTarget, 0x8072, GL_CLAMP_TO_EDGE);	//GL_TEXTURE_WRAP_R
+	//glTexParameterf(texture->textureTarget, 0x8072, GL_CLAMP_TO_EDGE);	//GL_TEXTURE_WRAP_R
 	
 	int targets[] = {
 		GL_TEXTURE_CUBE_MAP_POSITIVE_X,
@@ -50,8 +50,9 @@ TextureCube* TextureCube::fromFile(const char* fileName) {
 	const char* suffixes[] = { "posx", "negx", "posy", "negy", "posz", "negz" };
 	char sideFileName[255];	
 	for(int i=0; i<6; i++) {		
+		sprintf(sideFileName, "numsky_%s.png", suffixes[i]);
 		//sprintf(sideFileName, "sky_%s.png", suffixes[i]);
-		sprintf(sideFileName, "browar_%s.jpg", suffixes[i]);
+		//sprintf(sideFileName, "browar_%s.jpg", suffixes[i]);
 		unsigned char* imageData = osLoadImageFile(sideFileName, &texture->width, &texture->height);
 		glTexImage2D(targets[i], 0, GL_RGBA, texture->width, texture->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
 	}

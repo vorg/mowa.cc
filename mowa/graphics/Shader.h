@@ -34,8 +34,9 @@ public:
 	void setUniform(const char* name, int value);
 	void setUniform(const char* name, float value);
 	void setUniform(const char* name, double value);
-	void setUniform(const char* name, mat4& value);
 	void setUniform(const char* name, vec3& value);
+	void setUniform(const char* name, vec4& value);	
+	void setUniform(const char* name, mat4& value);
 	
 	static Shader* fromFile(const char* fileName);
 	std::vector<VertexAttribDeclaration*> attribDeclarations;

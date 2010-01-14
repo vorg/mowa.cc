@@ -23,14 +23,14 @@ namespace flow {
 //------------------------------------------------------------------------------
 	
 Shader::Shader() {	
-	Log::msg("Shader+");
+	//Log::msg("Shader+");
 	programObject = 0;
 }
 
 //------------------------------------------------------------------------------
 
 Shader::~Shader() {	
-	Log::msg("Shader-");	
+	//Log::msg("Shader-");	
 	if (programObject) {
 		glDeleteProgram(programObject);
 	}	
@@ -43,13 +43,15 @@ Shader::~Shader() {
 //------------------------------------------------------------------------------
 
 bool Shader::load(const char* code) {
-	Log::msg("Shader::load");
+	//Log::msg("Shader::load");
 	string codeStr(code);
 	vector<string> lines;
 	stringExplode(codeStr, "\n", &lines);
 	
 	string vertexShaderCode;
 	string fragmentShaderCode;
+	fragmentShaderCode += "precision highp float;\n";
+	fragmentShaderCode += "precision highp int;\n";
 	string* currentShaderCode = NULL;
 
 	for (int i=0; i<lines.size(); i++) {
@@ -66,8 +68,7 @@ bool Shader::load(const char* code) {
 				size_t secondSpace = lines[i].find(" ", 10); //10 is length of "attribute"+1
 				string attrType = lines[i].substr(10, secondSpace-10);
 				string attrName = lines[i].substr(secondSpace+1, lines[i].length() - secondSpace - 2);
-				
-				
+								
 				if (attrType == "vec3") {
 					attribDeclarations.push_back(new VertexAttribDeclaration(attrName, TYPE_VEC3));
 				}
@@ -197,16 +198,23 @@ void Shader::setUniform(const char* name, double value) {
 	
 //------------------------------------------------------------------------------
 	
-void Shader::setUniform(const char* name, mat4& value) {
-	int location = glGetUniformLocation(programObject, name);
-	glUniformMatrix4fv(location, 1, 0, &(value[0][0]));
-}
-	
-//------------------------------------------------------------------------------
-	
 void Shader::setUniform(const char* name, vec3& value) {
 	int location = glGetUniformLocation(programObject, name);
 	glUniform3fv(location, 1, &(value[0]));
+}
+	
+//------------------------------------------------------------------------------
+
+void Shader::setUniform(const char* name, vec4& value) {
+	int location = glGetUniformLocation(programObject, name);
+	glUniform4fv(location, 1, &(value[0]));
+}
+		
+//------------------------------------------------------------------------------
+
+void Shader::setUniform(const char* name, mat4& value) {
+	int location = glGetUniformLocation(programObject, name);
+	glUniformMatrix4fv(location, 1, 0, &(value[0][0]));
 }
 	
 //------------------------------------------------------------------------------

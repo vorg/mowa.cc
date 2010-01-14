@@ -13,21 +13,33 @@
 #include "Timer.h"
 #include "MathLib.h"
 #include "Effect.h"
+
+#include "Adalaj.h"
 #include "DistortedSphere.h"
-#include "RaytracedTunnel.h"
-#include "LutDistort.h"
 #include "ExampleTexturing.h"
+#include "ExampleRenderToCubeMap.h"
+#include "ExampleProjectiveTexturing.h"
+#include "ExampleLighting.h"
+#include "HappyNewYear2010.h"
+#include "LutDistort.h"
+#include "RaytracedTunnel.h"
 
 using namespace flow;
 
 //------------------------------------------------------------------------------
 
 void DirectMemoryAccess::init() {
-	Log::msg("DirectMemoryAccess::init");
+	//Log::msg("DirectMemoryAccess::init");
 	GLApp::init();
 	
-	effect = new ExampleTexturing();
-	//effect = new LutDistort();
+	effect = new Adalaj();
+	//effect = new ExampleTexturing();
+	//effect = new ExampleRenderToCubeMap();	
+	//effect = new ExampleProjectiveTexturing();
+	//effect = new ExampleLighting();
+	//effect = new HappyNewYear2010();
+	//effect = new LutDistort();	
+	
 }
 
 //------------------------------------------------------------------------------

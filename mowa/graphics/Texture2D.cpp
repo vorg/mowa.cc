@@ -17,19 +17,19 @@ namespace flow {
 
 
 Texture2D::Texture2D() {
-	Log::msg("Texture2D+");	
+	//Log::msg("Texture2D+");	
 }
 	
 //------------------------------------------------------------------------------
 	
 Texture2D::~Texture2D() {
-	Log::msg("Texture2D-");	
+	//Log::msg("Texture2D-");	
 }
 	
 //------------------------------------------------------------------------------
 	
 Texture2D* Texture2D::create(int width, int height) {
-	Log::msg("Texture2D::create w:%d h:%d", width, height);
+	//Log::msg("Texture2D::create w:%d h:%d", width, height);
 
 	Texture2D* texture2D = new Texture2D();
 	
@@ -67,7 +67,7 @@ Texture2D* Texture2D::generateChecker() {
 	Texture2D* texture2D = Texture2D::create(width, height);
 	//glActiveTexture(GL_TEXTURE0);	
 	glBindTexture(texture2D->textureTarget, texture2D->textureObject);
-	Log::msg("texture2D->textureObject %d", texture2D->textureObject);
+	//Log::msg("texture2D->textureObject %d", texture2D->textureObject);
 	
 	int c;
 	//int r, g, b, rgb;

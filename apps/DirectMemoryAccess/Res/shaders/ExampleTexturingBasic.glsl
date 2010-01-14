@@ -14,7 +14,7 @@ void main()
 }
 
 //[FRAG]
-varying highp vec2 texCoord0Var;
+varying vec2 texCoord0Var;
 uniform sampler2D tex0;
 
 void main()

@@ -29,10 +29,10 @@ public:
 	VertexAttribDeclaration(VertexAttribType name, DataType dataType) {
 		this->name = name;
 		this->dataType = dataType;
-		Log::msg("VertexAttribDeclaration+");
+		//Log::msg("VertexAttribDeclaration+");
 	}
 	~VertexAttribDeclaration() {
-		Log::msg("VertexAttribDeclaration-");
+		//Log::msg("VertexAttribDeclaration-");
 	}
 };
 	

@@ -18,7 +18,7 @@ namespace flow {
 
 class Torus : public Geometry {
 public:	
-	Torus(float R, float r, unsigned int nsides, unsigned int nsegments);
+	Torus(float R=1, float r=0.3, unsigned int nsides=36, unsigned int nsegments=36);
 	~Torus();
 private:			
 	void genTorus(float R, float r, unsigned int nsides, unsigned int nsegments);

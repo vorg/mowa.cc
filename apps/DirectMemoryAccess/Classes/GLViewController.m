@@ -25,7 +25,7 @@
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
-	NSLog(@"GLViewController.loadView");
+	//NSLog(@"GLViewController.loadView");
 	GLView* glView = [[GLView alloc] initWithFrame:CGRectMake(0, 0, 480, 320)];
 	self.view = glView;
 	[glView release];
