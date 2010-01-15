@@ -60,7 +60,7 @@ void VBOGeometryRenderer::rebuild() {
 	}	
 	glGenBuffers(1, &indexBuffer);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-	int size = vs->getNumIndices() * sizeof(unsigned short);
+	int size = vs->getNumIndices() * sizeof(VertexStreamIndex);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, vs->getIndices(), GL_STATIC_DRAW);
 	
 	isValid = true;
