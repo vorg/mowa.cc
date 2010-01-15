@@ -88,7 +88,11 @@ Texture2D* Texture2D::generateChecker() {
 	
 	//glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, pixels);
 	glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+#ifdef GL_ES_VERSION_2_0
 	glGenerateMipmap(texture2D->textureTarget);
+#else
+	glGenerateMipmapEXT(texture2D->textureTarget);
+#endif
 	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	return texture2D;	
@@ -104,7 +108,11 @@ Texture2D* Texture2D::fromFile(const char* fileName) {
 		Texture2D* texture2D = Texture2D::create(width, height);
 		glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
 		free(imageData);		
+#ifdef GL_ES_VERSION_2_0
 		glGenerateMipmap(texture2D->textureTarget);
+#else
+		glGenerateMipmapEXT(texture2D->textureTarget);
+#endif
 		glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		glTexParameteri(texture2D->textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		return texture2D;		
