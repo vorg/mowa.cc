@@ -10,3 +10,5 @@
 		glGetActiveAttrib
 	- or ignore and read values assigned by OpenGL @done
 		glGetAttribLocation
+- VertexArray 
+	- unsigned short for iPhone and unsigned int for OSX

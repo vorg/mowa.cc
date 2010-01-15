@@ -159,6 +159,12 @@
 			933E925010FFD1B200C5CE6A = 933E925010FFD1B200C5CE6A /* PBXTextBookmark */;
 			933E925110FFD1B200C5CE6A = 933E925110FFD1B200C5CE6A /* PBXTextBookmark */;
 			933E925710FFD2CA00C5CE6A = 933E925710FFD2CA00C5CE6A /* PBXTextBookmark */;
+			93780E9111008A62005F254B /* PBXTextBookmark */ = 93780E9111008A62005F254B /* PBXTextBookmark */;
+			93780E9211008A62005F254B /* PBXTextBookmark */ = 93780E9211008A62005F254B /* PBXTextBookmark */;
+			93780E9311008A62005F254B /* PBXTextBookmark */ = 93780E9311008A62005F254B /* PBXTextBookmark */;
+			93780E9411008A62005F254B /* PBXTextBookmark */ = 93780E9411008A62005F254B /* PBXTextBookmark */;
+			93780E9511008A62005F254B /* PBXTextBookmark */ = 93780E9511008A62005F254B /* PBXTextBookmark */;
+			93780E9611008A62005F254B /* PBXTextBookmark */ = 93780E9611008A62005F254B /* PBXTextBookmark */;
 			93A4B15810FF390B001C7D8C = 93A4B15810FF390B001C7D8C /* PBXTextBookmark */;
 			93A4B15910FF390B001C7D8C = 93A4B15910FF390B001C7D8C /* PBXTextBookmark */;
 			93A4B15A10FF390B001C7D8C = 93A4B15A10FF390B001C7D8C /* PBXTextBookmark */;
@@ -979,6 +985,66 @@
 			sepNavVisRange = "{0, 1007}";
 		};
 	};
+	93780E9111008A62005F254B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 933E911B10FFBE3800C5CE6A /* VBOGeometryRenderer.cpp */;
+		name = "VBOGeometryRenderer.cpp: 37";
+		rLen = 0;
+		rLoc = 1060;
+		rType = 0;
+		vrLen = 1609;
+		vrLoc = 620;
+	};
+	93780E9211008A62005F254B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93F1584310E1392000DC5171 /* Texture2D.cpp */;
+		name = "Texture2D.cpp: 111";
+		rLen = 24;
+		rLoc = 3649;
+		rType = 0;
+		vrLen = 1630;
+		vrLoc = 2466;
+	};
+	93780E9311008A62005F254B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93F1582210E138C300DC5171 /* GLApp.cpp */;
+		name = "GLApp.cpp: 31";
+		rLen = 0;
+		rLoc = 691;
+		rType = 0;
+		vrLen = 973;
+		vrLoc = 1707;
+	};
+	93780E9411008A62005F254B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93F1594710E13DFA00DC5171 /* Graphics.h */;
+		name = "Graphics.h: 7";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 490;
+		vrLoc = 0;
+	};
+	93780E9511008A62005F254B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93F1581610E138B400DC5171 /* GLView.mm */;
+		name = "GLView.mm: 32";
+		rLen = 0;
+		rLoc = 615;
+		rType = 0;
+		vrLen = 1334;
+		vrLoc = 151;
+	};
+	93780E9611008A62005F254B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93F1581610E138B400DC5171 /* GLView.mm */;
+		name = "GLView.mm: 30";
+		rLen = 0;
+		rLoc = 556;
+		rType = 0;
+		vrLen = 1334;
+		vrLoc = 151;
+	};
 	93A4B15810FF390B001C7D8C /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 93F1596D10E13DFA00DC5171 /* Timer.h */;
@@ -1675,9 +1741,9 @@
 	};
 	93F1581610E138B400DC5171 /* GLView.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1524, 1781}}";
-			sepNavSelRange = "{615, 0}";
-			sepNavVisRange = "{183, 1257}";
+			sepNavIntBoundsRect = "{{0, 0}, {1132, 1898}}";
+			sepNavSelRange = "{556, 0}";
+			sepNavVisRange = "{151, 1334}";
 			sepNavWindowFrame = "{{15, 4}, {993, 874}}";
 		};
 	};
@@ -1734,9 +1800,9 @@
 	};
 	93F1582210E138C300DC5171 /* GLApp.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1010, 1300}}";
-			sepNavSelRange = "{472, 0}";
-			sepNavVisRange = "{1832, 951}";
+			sepNavIntBoundsRect = "{{0, 0}, {1010, 1339}}";
+			sepNavSelRange = "{691, 0}";
+			sepNavVisRange = "{1707, 973}";
 			sepNavWindowFrame = "{{598, 4}, {750, 558}}";
 		};
 	};
@@ -1775,6 +1841,11 @@
 		name = Texture2D.cpp;
 		path = "/Users/vorg/Workspace/vorg-mowa-cc/mowa/graphics/Texture2D.cpp";
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1010, 1703}}";
+			sepNavSelRange = "{3649, 24}";
+			sepNavVisRange = "{2466, 1630}";
+		};
 	};
 	93F1594210E13DFA00DC5171 /* Geometry.h */ = {
 		uiCtxt = {
@@ -1806,9 +1877,9 @@
 	};
 	93F1594710E13DFA00DC5171 /* Graphics.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {956, 566}}";
-			sepNavSelRange = "{244, 0}";
-			sepNavVisRange = "{0, 342}";
+			sepNavIntBoundsRect = "{{0, 0}, {1010, 545}}";
+			sepNavSelRange = "{106, 0}";
+			sepNavVisRange = "{0, 490}";
 			sepNavWindowFrame = "{{15, 46}, {1379, 827}}";
 		};
 	};
@@ -2111,8 +2182,8 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 123;
-		modificationTime = 283939651.787589;
-		originalNumberOfMultipleMatches = 0;
+		modificationTime = 285248095.483748;
+		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
 	93FB2A3D10EC954A0015569E /* PBXTextBookmark */ = {
