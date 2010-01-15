@@ -22,10 +22,20 @@ class GeometryRenderer;
 //------------------------------------------------------------------------------
 	
 class Geometry {
+public:
+	enum PrimitiveType {
+		Points			= 0x0000,		//GL_POINTS
+		Lines			= 0x0001,		//GL_LINES
+		Triangles		= 0x0004,		//GL_TRIANGLES
+		TrianglesStrip	= 0x0005		//GL_TRIANGLE_STRIP
+	};
 protected:
 	VertexStream vertexStream;
 	GeometryRenderer* renderer;
+	PrimitiveType primitiveType;
+
 public:
+	
 	Geometry();
 	~Geometry();
 	
@@ -34,6 +44,9 @@ public:
 	void invertNormals();
 	void render(Shader* shader);
 	void invalidate();
+	
+	PrimitiveType getPrimitiveType() { return primitiveType; }
+	void setPrimitiveType(PrimitiveType primitiveType) { this->primitiveType = primitiveType; }
 };	
 //------------------------------------------------------------------------------
 	

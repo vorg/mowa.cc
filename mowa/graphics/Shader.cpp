@@ -50,11 +50,14 @@ bool Shader::load(const char* code) {
 	
 	string vertexShaderCode;
 	string fragmentShaderCode;
+#ifdef GL_ES_VERSION_2_0	
 	fragmentShaderCode += "precision highp float;\n";
 	fragmentShaderCode += "precision highp int;\n";
+#endif
 	string* currentShaderCode = NULL;
 
 	for (int i=0; i<lines.size(); i++) {
+		Log::msg("%d: %s", i, lines[i].c_str());
 		if (lines[i].compare("//[VERT]") == 0) {			
 			currentShaderCode = &vertexShaderCode;
 		}
@@ -225,6 +228,7 @@ void Shader::setUniform(const char* name, mat4& value) {
 	
 Shader* Shader::fromFile(const char* fileName) {
 	const char* shaderCode = osLoadTextFile(fileName);
+	
 	if (shaderCode) {
 		Shader* shader = new Shader();
 		if (!shader->load(shaderCode)) {

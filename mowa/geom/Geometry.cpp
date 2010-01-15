@@ -19,6 +19,7 @@ namespace flow {
 Geometry::Geometry() {
 	//renderer = new VAGeometryRenderer(this);
 	renderer = new VBOGeometryRenderer(this);
+	primitiveType = Geometry::Triangles;
 }
 	
 //------------------------------------------------------------------------------

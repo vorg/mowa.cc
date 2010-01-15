@@ -53,8 +53,19 @@ TextureCube* TextureCube::fromFile(const char* fileName) {
 		sprintf(sideFileName, "numsky_%s.png", suffixes[i]);
 		//sprintf(sideFileName, "sky_%s.png", suffixes[i]);
 		//sprintf(sideFileName, "browar_%s.jpg", suffixes[i]);
-		unsigned char* imageData = osLoadImageFile(sideFileName, &texture->width, &texture->height);
-		glTexImage2D(targets[i], 0, GL_RGBA, texture->width, texture->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
+		unsigned int bpp;
+		unsigned char* imageData = osLoadImageFile(sideFileName, &texture->width, &texture->height, &bpp);
+		
+		if (bpp == 32) {
+			glTexImage2D(targets[i], 0, GL_RGBA, texture->width, texture->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
+		}
+		else if (bpp == 24) {
+			glTexImage2D(targets[i], 0, GL_RGBA, texture->width, texture->height, 0, GL_RGB, GL_UNSIGNED_BYTE, imageData);
+		}
+		else {
+			Log::error("Texture2D::fromFile unsupported numbe of bpp (%d) in \"%s\"", bpp, fileName);
+			return NULL;
+		}
 	}
 	
 	return texture;
