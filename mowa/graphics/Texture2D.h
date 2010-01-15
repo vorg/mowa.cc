@@ -19,9 +19,12 @@ class Texture2D : public Texture {
 public: 
 	Texture2D();
 	~Texture2D();
+	
+		
 	static Texture2D* create(int width, int height);
-	static Texture2D* fromFile(const char* fileName);
+	static Texture2D* fromFile(const char* fileName, bool keepPixels=false);
 	static Texture2D* generateChecker();
+	
 };
 	
 }

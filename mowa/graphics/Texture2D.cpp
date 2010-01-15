@@ -16,7 +16,7 @@ namespace flow {
 //------------------------------------------------------------------------------
 
 
-Texture2D::Texture2D() {
+Texture2D::Texture2D() {	
 	//Log::msg("Texture2D+");	
 }
 	
@@ -65,6 +65,8 @@ Texture2D* Texture2D::generateChecker() {
 	//* pixels = new int[width * height];
 	
 	Texture2D* texture2D = Texture2D::create(width, height);
+	texture2D->bpp = 24; //RGB
+	
 	//glActiveTexture(GL_TEXTURE0);	
 	glBindTexture(texture2D->textureTarget, texture2D->textureObject);
 	//Log::msg("texture2D->textureObject %d", texture2D->textureObject);
@@ -100,13 +102,15 @@ Texture2D* Texture2D::generateChecker() {
 	
 //------------------------------------------------------------------------------
 	
-Texture2D* Texture2D::fromFile(const char* fileName) {	
+Texture2D* Texture2D::fromFile(const char* fileName, bool keepPixels) {	
 	unsigned int width;
 	unsigned int height;
-	unsigned int bpp;
+	unsigned int bpp;	
 	unsigned char* imageData = osLoadImageFile(fileName, &width, &height, &bpp);
 	if (imageData) {
 		Texture2D* texture2D = Texture2D::create(width, height);
+		texture2D->bpp = bpp;
+		
 		if (bpp == 32) {
 			glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
 		}
@@ -117,7 +121,14 @@ Texture2D* Texture2D::fromFile(const char* fileName) {
 			Log::error("Texture2D::fromFile unsupported numbe of bpp (%d) in \"%s\"", bpp, fileName);
 			return NULL;
 		}
-		free(imageData);		
+		
+		if (keepPixels) {
+			texture2D->pixels = imageData;
+		}
+		else {
+			free(imageData);
+		}
+		
 #ifdef GL_ES_VERSION_2_0
 		glGenerateMipmap(texture2D->textureTarget);
 #else
