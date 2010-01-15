@@ -73,6 +73,7 @@ public:
 	VertexAttrib*	addAttrib(VertexAttribType type, DataType dataType);
 	VertexAttrib*	getAttrib(VertexAttribType type, DataType dataType);
 	VertexAttrib*	getAttrib(unsigned int index);		
+	int				getAttribIndex(VertexAttrib* attrib);		
 	
 	unsigned int	getNumVertices();
 	void			setNumVertices(unsigned int numVertices);
@@ -82,9 +83,10 @@ public:
 	unsigned short*	getIndices();
 
 	//quads?
-	unsigned int	getNumIndices2();
-	void			setNumIndices2(unsigned int numIndices);	
-	unsigned short*	getIndices2();
+	//DEPRECATED
+	//unsigned int	getNumIndices2();
+	//void			setNumIndices2(unsigned int numIndices);	
+	//unsigned short*	getIndices2();
 	
 	typedef std::vector<unsigned short> IndicesList;
 	typedef std::vector<VertexAttrib*> AttribList;

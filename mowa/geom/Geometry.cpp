@@ -8,10 +8,38 @@
  */
 
 #include "Geometry.h"
+#include "VAGeometryRenderer.h"
+#include "VBOGeometryRenderer.h"
 #include "VertexStream.h"
 #include "MathLib.h"
 
 namespace flow {
+//------------------------------------------------------------------------------
+	
+Geometry::Geometry() {
+	//renderer = new VAGeometryRenderer(this);
+	renderer = new VBOGeometryRenderer(this);
+}
+	
+//------------------------------------------------------------------------------
+	
+Geometry::~Geometry() {
+	delete renderer;
+}
+	
+//------------------------------------------------------------------------------
+
+void Geometry::render(Shader* shader) {
+	renderer->render(shader);
+}	
+	
+	
+//------------------------------------------------------------------------------
+
+void Geometry::invalidate() {
+	renderer->invalidate();
+}		
+	
 //------------------------------------------------------------------------------
 	
 void Geometry::invertNormals() {

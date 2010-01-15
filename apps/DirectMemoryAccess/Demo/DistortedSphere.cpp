@@ -116,8 +116,8 @@ void DistortedSphere::draw() {
 	shader->setUniform("wireframe", 0.0f);
 	glDrawElements(GL_TRIANGLES, vs->getNumIndices(), GL_UNSIGNED_SHORT, vs->getIndices());	
 	
-	shader->setUniform("wireframe", 1.0f);	
-	glDrawElements(GL_LINES, vs->getNumIndices2(), GL_UNSIGNED_SHORT, vs->getIndices2());
+	//shader->setUniform("wireframe", 1.0f);	
+	//glDrawElements(GL_LINES, vs->getNumIndices2(), GL_UNSIGNED_SHORT, vs->getIndices2());
 	
 	//glDrawArrays(GL_TRIANGLE_STRIP, 0, 3);	
 }

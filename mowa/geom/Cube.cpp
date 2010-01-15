@@ -43,7 +43,7 @@ void Cube::genCube(float sx, float sy, float sz, int nx, int ny, int nz, bool sm
 	vec3* posBuf = (vec3*)posAttrib->getBuffer();
 	
 	unsigned short* indexBuf = vertexStream.getIndices();
-	unsigned short* indexBuf2 = vertexStream.getIndices2();
+	//unsigned short* indexBuf2 = vertexStream.getIndices2();
 	
 	VertexAttrib* normalAttrib = vertexStream.getAttrib("normal", TYPE_VEC3);
 	vec3* normalBuf = (vec3*)normalAttrib->getBuffer();

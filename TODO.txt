@@ -1,12 +1,12 @@
 - VertexStream
-	- implement va and vbo backends
-		- read about the differences
+	- implement va and vbo backends @done
+		- read about the differences @done
 	- issues
-		- render geometry with given shader
+		- render geometry with given shader @done
 		- disable other unused vertex attrib pointers
-- Shader
-	- reimplement attribute finding
+- Shader @done
+	- reimplement attribute finrding @done
 		glGetProgramiv(progam, GL_ACTIVE_ATTRIBUTES, &numActiveAttribs);
-		glGetActiveAttrib(
-	- or ignore and read values assigned by OpenGL
+		glGetActiveAttrib
+	- or ignore and read values assigned by OpenGL @done
 		glGetAttribLocation

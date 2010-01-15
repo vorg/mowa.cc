@@ -48,7 +48,7 @@ void Torus::genTorus(float R, float r, unsigned int nsides, unsigned int nsegmen
 	
 	vertexStream.setNumVertices(estimatedNumPoints);
 	vertexStream.setNumIndices(estimatedNumPoints * 6);
-	vertexStream.setNumIndices2(estimatedNumPoints * 8);
+	//vertexStream.setNumIndices2(estimatedNumPoints * 8);
 	
 	//Log::msg("Torus::genTorus numPoints:%d numIndices:%d dtheta:%f dphi:%f", estimatedNumPoints, estimatedNumPoints*6, dtheta, dphi);		
 	
@@ -56,7 +56,7 @@ void Torus::genTorus(float R, float r, unsigned int nsides, unsigned int nsegmen
 	vec3* posBuf = (vec3*)posAttrib->getBuffer();
 	
 	unsigned short* indexBuf = vertexStream.getIndices();
-	unsigned short* indexBuf2 = vertexStream.getIndices2();
+	//unsigned short* indexBuf2 = vertexStream.getIndices2();
 	
 	VertexAttrib* normAttrib = vertexStream.getAttrib("normal", TYPE_VEC3);
 	vec3* normBuf = (vec3*)normAttrib->getBuffer();
@@ -106,25 +106,25 @@ void Torus::genTorus(float R, float r, unsigned int nsides, unsigned int nsegmen
 			++indexBuf;		
 			
 			
-			*indexBuf2 = ((side  )*(nsegments+1) + segment); 
-			++indexBuf2;
-			*indexBuf2 = ((side+1)*(nsegments+1) + segment);			
-			++indexBuf2;
-			
-			*indexBuf2 = ((side+1)*(nsegments+1) + segment);			
-			++indexBuf2;			
-			*indexBuf2 = ((side+1)*(nsegments+1) + segment + 1);
-			++indexBuf2;
-			
-			*indexBuf2 = ((side+1)*(nsegments+1) + segment + 1);
-			++indexBuf2;			
-			*indexBuf2 = ((side  )*(nsegments+1) + segment + 1);
-			++indexBuf2;
-			
-			*indexBuf2 = ((side  )*(nsegments+1) + segment + 1);
-			++indexBuf2;
-			*indexBuf2 = ((side  )*(nsegments+1) + segment); 
-			++indexBuf2;
+			//*indexBuf2 = ((side  )*(nsegments+1) + segment); 
+//			++indexBuf2;
+//			*indexBuf2 = ((side+1)*(nsegments+1) + segment);			
+//			++indexBuf2;
+//			
+//			*indexBuf2 = ((side+1)*(nsegments+1) + segment);			
+//			++indexBuf2;			
+//			*indexBuf2 = ((side+1)*(nsegments+1) + segment + 1);
+//			++indexBuf2;
+//			
+//			*indexBuf2 = ((side+1)*(nsegments+1) + segment + 1);
+//			++indexBuf2;			
+//			*indexBuf2 = ((side  )*(nsegments+1) + segment + 1);
+//			++indexBuf2;
+//			
+//			*indexBuf2 = ((side  )*(nsegments+1) + segment + 1);
+//			++indexBuf2;
+//			*indexBuf2 = ((side  )*(nsegments+1) + segment); 
+//			++indexBuf2;
 		}
 	}
 	

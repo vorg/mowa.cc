@@ -65,6 +65,10 @@ bool Shader::load(const char* code) {
 			*currentShaderCode += lines[i] + "\n";
 			//searching for attribs defined in source
 			if (lines[i].find("attribute") != string::npos) {
+				//could be replaced by calling these functions after linking 
+				//glGetProgramiv(progam, GL_ACTIVE_ATTRIBUTES, &numActiveAttribs);
+				//glGetActiveAttrib
+				//glGetAttribLocation
 				size_t secondSpace = lines[i].find(" ", 10); //10 is length of "attribute"+1
 				string attrType = lines[i].substr(10, secondSpace-10);
 				string attrName = lines[i].substr(secondSpace+1, lines[i].length() - secondSpace - 2);

@@ -32,6 +32,8 @@
 		9335ED5610E7F36C003F54B1 /* ExampleTexturingSEMSpecularMap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9335DC2410E6BDFB003F54B1 /* ExampleTexturingSEMSpecularMap.jpg */; };
 		9335ED7010E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335ED6E10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png */; };
 		9335ED7110E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png in Resources */ = {isa = PBXBuildFile; fileRef = 9335ED6F10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png */; };
+		933E911C10FFBE3800C5CE6A /* VBOGeometryRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 933E911B10FFBE3800C5CE6A /* VBOGeometryRenderer.cpp */; };
+		933E911F10FFBE4400C5CE6A /* VAGeometryRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 933E911E10FFBE4400C5CE6A /* VAGeometryRenderer.cpp */; };
 		9370899E10E819D800A003B0 /* TextureCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9370899D10E819D800A003B0 /* TextureCube.cpp */; };
 		937089B810E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 937089B710E81BDC00A003B0 /* ExampleTexturingCubeMapping.glsl */; };
 		93708CD910E8545000A003B0 /* browar_negx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93708CCD10E8545000A003B0 /* browar_negx.jpg */; };
@@ -132,6 +134,11 @@
 		9335E9F810E6D0B2003F54B1 /* Torus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Torus.cpp; sourceTree = "<group>"; };
 		9335ED6E10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeWarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ExampleTexturingSEMLightProbeWarm.png; sourceTree = "<group>"; };
 		9335ED6F10E7FB6D003F54B1 /* ExampleTexturingSEMLightProbeCold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ExampleTexturingSEMLightProbeCold.png; sourceTree = "<group>"; };
+		933E90F210FFBBCC00C5CE6A /* GeometryRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometryRenderer.h; sourceTree = "<group>"; };
+		933E911A10FFBE3800C5CE6A /* VBOGeometryRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBOGeometryRenderer.h; sourceTree = "<group>"; };
+		933E911B10FFBE3800C5CE6A /* VBOGeometryRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VBOGeometryRenderer.cpp; sourceTree = "<group>"; };
+		933E911D10FFBE4400C5CE6A /* VAGeometryRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAGeometryRenderer.h; sourceTree = "<group>"; };
+		933E911E10FFBE4400C5CE6A /* VAGeometryRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAGeometryRenderer.cpp; sourceTree = "<group>"; };
 		93707BE410E8136800A003B0 /* copy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = copy; path = ../../copy; sourceTree = SOURCE_ROOT; };
 		9370896F10E8190200A003B0 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		9370899C10E819D800A003B0 /* TextureCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureCube.h; sourceTree = "<group>"; };
@@ -449,6 +456,7 @@
 		93F1594110E13DFA00DC5171 /* geom */ = {
 			isa = PBXGroup;
 			children = (
+				933E90F210FFBBCC00C5CE6A /* GeometryRenderer.h */,
 				93F1594210E13DFA00DC5171 /* Geometry.h */,
 				93BF4EC610F0D38E00807231 /* Geometry.cpp */,
 				93F1594410E13DFA00DC5171 /* Sphere.h */,
@@ -461,6 +469,10 @@
 				93FB29A710EC18090015569E /* Cube.cpp */,
 				93FB2D7E10EEB3900015569E /* FullScreenQuad.h */,
 				93FB2D7F10EEB3900015569E /* FullScreenQuad.cpp */,
+				933E911A10FFBE3800C5CE6A /* VBOGeometryRenderer.h */,
+				933E911B10FFBE3800C5CE6A /* VBOGeometryRenderer.cpp */,
+				933E911D10FFBE4400C5CE6A /* VAGeometryRenderer.h */,
+				933E911E10FFBE4400C5CE6A /* VAGeometryRenderer.cpp */,
 			);
 			path = geom;
 			sourceTree = "<group>";
@@ -653,6 +665,8 @@
 				93BF4E1010F0B8AC00807231 /* ExampleLighting.cpp in Sources */,
 				93BF4EC710F0D38F00807231 /* Geometry.cpp in Sources */,
 				93D11ACB10FE7083004308AA /* Adalaj.cpp in Sources */,
+				933E911C10FFBE3800C5CE6A /* VBOGeometryRenderer.cpp in Sources */,
+				933E911F10FFBE4400C5CE6A /* VAGeometryRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

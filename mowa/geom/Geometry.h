@@ -11,17 +11,29 @@
 #define FLOW_GEOMETRY_H
 
 #include "VertexStream.h"
+#include "Shader.h"
 
 namespace flow {
+
+//------------------------------------------------------------------------------
+	
+class GeometryRenderer;
 	
 //------------------------------------------------------------------------------
+	
 class Geometry {
 protected:
 	VertexStream vertexStream;
+	GeometryRenderer* renderer;
 public:
+	Geometry();
+	~Geometry();
+	
 	VertexStream& getVertexStream() { return vertexStream; }
 	
 	void invertNormals();
+	void render(Shader* shader);
+	void invalidate();
 };	
 //------------------------------------------------------------------------------
 	

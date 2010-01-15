@@ -46,7 +46,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 	
 	vertexStream.setNumVertices(estimatedNumPoints);
 	vertexStream.setNumIndices(estimatedNumPoints * 6);
-	vertexStream.setNumIndices2(estimatedNumPoints * 8);
+	//vertexStream.setNumIndices2(estimatedNumPoints * 8);
 	
 	//Log::msg("Sphere::genSphere numPoints:%d numIndices:%d", estimatedNumPoints, estimatedNumPoints*6);		
 	
@@ -54,7 +54,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 	vec3* posBuf = (vec3*)posAttrib->getBuffer();
 	
 	unsigned short* indexBuf = vertexStream.getIndices();
-	unsigned short* indexBuf2 = vertexStream.getIndices2();
+	//unsigned short* indexBuf2 = vertexStream.getIndices2();
 	
 	VertexAttrib* normAttrib = vertexStream.getAttrib("normal", TYPE_VEC3);
 	vec3* normBuf = (vec3*)normAttrib->getBuffer();
@@ -99,7 +99,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 			*indexBuf = ((segment  )*(nsides+1) + side + 1);
 			++indexBuf;		
 			
-			
+			/**
 			*indexBuf2 = ((segment  )*(nsides+1) + side); 
 			++indexBuf2;
 			*indexBuf2 = ((segment+1)*(nsides+1) + side);			
@@ -119,6 +119,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 			++indexBuf2;
 			*indexBuf2 = ((segment  )*(nsides+1) + side); 
 			++indexBuf2;
+			/**/
 		}
 	}
 	

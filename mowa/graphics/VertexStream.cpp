@@ -7,6 +7,7 @@
  *
  */
 
+#include <algorithm>
 #include "VertexStream.h"
 #include "Vec.h"
 #include "Utils.h"
@@ -128,6 +129,18 @@ VertexAttrib* VertexStream::getAttrib(unsigned int index) {
 	if (index > attribs.size()) return NULL;
 	else return attribs[index];
 }
+	
+//-----------------------------------------------------------------------------
+
+int VertexStream::getAttribIndex(VertexAttrib* attrib) {
+	std::vector<VertexAttrib*>::iterator pos = std::find(attribs.begin(), attribs.end(), attrib);
+	if (pos != attribs.end()) {
+		return pos - attribs.begin();
+	}
+	else {
+		return -1;
+	}
+}
 
 //-----------------------------------------------------------------------------
 
@@ -167,22 +180,22 @@ unsigned short* VertexStream::getIndices() {
 	
 //-----------------------------------------------------------------------------
 
-unsigned int VertexStream::getNumIndices2() {
-	return indices2.size();
-}
+//unsigned int VertexStream::getNumIndices2() {
+//	return indices2.size();
+//}
 
 //-----------------------------------------------------------------------------
 
-void VertexStream::setNumIndices2(unsigned int numIndices) {
-	indices2.resize(numIndices);
-}
+//void VertexStream::setNumIndices2(unsigned int numIndices) {
+//	indices2.resize(numIndices);
+//}
 
 //-----------------------------------------------------------------------------
 
-unsigned short* VertexStream::getIndices2() {
-	if (indices2.size() > 0) return &indices2[0];
-	else return NULL;
-}
+//unsigned short* VertexStream::getIndices2() {
+//	if (indices2.size() > 0) return &indices2[0];
+//	else return NULL;
+//}
 
 //-----------------------------------------------------------------------------
 

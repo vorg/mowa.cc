@@ -119,8 +119,6 @@ void Adalaj::draw() {
 	modelViewMatrix *= mat4::scaleMatrix(dx*nx, 0.4, nz*dz);
 	shader->setUniform("modelViewMatrix", modelViewMatrix);
 	render(cube, shader);	
-	
-	Log::msg("numVertices:%d, timesPerFrame: %d", cube->getVertexStream().getNumVertices(), timesPerFrame);
 }
 
 //------------------------------------------------------------------------------
@@ -145,7 +143,9 @@ GLuint vertexBuffers[3]; //GLuint
 GLuint indexBuffer;
 
 void Adalaj::render(Geometry* geom, Shader* shader) {
-	timesPerFrame++;
+	geom->render(shader);
+	return;
+	
 	/**/
 	VertexStream* vs = &geom->getVertexStream();	
 	if (whichTime == 0) {
@@ -158,8 +158,7 @@ void Adalaj::render(Geometry* geom, Shader* shader) {
 			glGenBuffers(1, &vertexBuffers[i]);
 			glBindBuffer(GL_ARRAY_BUFFER, vertexBuffers[i]);
 			int size = attrib->getNumVertices() * attrib->getSize() * attrib->getStride();
-			glBufferData(GL_ARRAY_BUFFER, size, buf, GL_STATIC_DRAW);
-			
+			glBufferData(GL_ARRAY_BUFFER, size, buf, GL_STATIC_DRAW);			
 		}
 		
 		glGenBuffers(1, &indexBuffer);
@@ -174,7 +173,6 @@ void Adalaj::render(Geometry* geom, Shader* shader) {
 		for(int i=0; i<shader->attribDeclarations.size(); i++) {
 			VertexAttribDeclaration* attribDeclaration = shader->attribDeclarations[i];
 			VertexAttrib* attrib = vs->getAttrib(attribDeclaration->name, attribDeclaration->dataType);
-			//void* buf = attrib->getBuffer();
 			glBindBuffer(GL_ARRAY_BUFFER, vertexBuffers[i]);
 			glEnableVertexAttribArray(i);
 			glVertexAttribPointer(i, attrib->getSize(), GL_FLOAT, false, 0, 0);
