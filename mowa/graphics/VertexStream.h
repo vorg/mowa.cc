@@ -13,6 +13,7 @@
 #include <vector>
 #include "DataType.h"
 #include "Utils.h"
+#include "Os.h"
 
 namespace flow {
 	
@@ -63,6 +64,14 @@ private:
 };
 
 //-----------------------------------------------------------------------------
+	
+#ifdef USE_OPENGL_ES	
+typedef unsigned short VertexStreamIndex;
+#else
+typedef unsigned int VertexStreamIndex;
+#endif
+
+//-----------------------------------------------------------------------------
 
 class VertexStream {	
 public:
@@ -80,15 +89,16 @@ public:
 	
 	unsigned int	getNumIndices();
 	void			setNumIndices(unsigned int numIndices);	
-	unsigned short*	getIndices();
+	
+	VertexStreamIndex*	getIndices();
 
 	//quads?
 	//DEPRECATED
 	//unsigned int	getNumIndices2();
 	//void			setNumIndices2(unsigned int numIndices);	
 	//unsigned short*	getIndices2();
-	
-	typedef std::vector<unsigned short> IndicesList;
+
+	typedef std::vector<VertexStreamIndex> IndicesList;
 	typedef std::vector<VertexAttrib*> AttribList;
 	
 private:

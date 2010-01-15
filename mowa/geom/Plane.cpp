@@ -41,7 +41,7 @@ void Plane::genPlane(float s1, float s2, int axis, int n1, int n2) {
 	VertexAttrib* posAttrib = vertexStream.getAttrib("position", TYPE_VEC3);
 	vec3* posBuf = (vec3*)posAttrib->getBuffer();
 	
-	unsigned short* indexBuf = vertexStream.getIndices();
+	VertexStreamIndex* indexBuf = vertexStream.getIndices();
 	//unsigned short* indexBuf2 = vertexStream.getIndices2();
 	
 	VertexAttrib* normAttrib = vertexStream.getAttrib("normal", TYPE_VEC3);

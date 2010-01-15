@@ -36,7 +36,7 @@ void FullScreenQuad::genFullScreenQuad() {
 	VertexAttrib* posAttrib = vertexStream.getAttrib("position", TYPE_VEC2);
 	vec2* posBuf = (vec2*)posAttrib->getBuffer();
 	
-	unsigned short* indexBuf = vertexStream.getIndices();
+	VertexStreamIndex* indexBuf = vertexStream.getIndices();
 	
 	VertexAttrib* texCoord0Attrib = vertexStream.getAttrib("texCoord0", TYPE_VEC2);
 	vec2* texCoord0Buf = (vec2*)texCoord0Attrib->getBuffer();

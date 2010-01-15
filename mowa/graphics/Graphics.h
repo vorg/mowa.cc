@@ -10,11 +10,9 @@
 #ifndef FLOW_GRAPHICS_H
 #define FLOW_GRAPHICS_H
 
-#ifdef __APPLE__
-#include "TargetConditionals.h"
-#endif
+#include "Os.h"
 
-#ifdef TARGET_OS_IPHONE
+#ifdef USE_OPENGL_ES
 
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>

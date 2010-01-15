@@ -10,6 +10,14 @@
 #ifndef FLOW_OS_H
 #define FLOW_OS_H
 
+#ifdef __APPLE__
+#include "TargetConditionals.h"
+#endif
+
+#ifdef TARGET_OS_IPHONE
+#define USE_OPENGL_ES
+#endif
+
 //------------------------------------------------------------------------------
 
 extern const char* osLoadTextFile(const char* fileName);

@@ -50,14 +50,13 @@ bool Shader::load(const char* code) {
 	
 	string vertexShaderCode;
 	string fragmentShaderCode;
-#ifdef GL_ES_VERSION_2_0	
+#ifdef USE_OPENGL_ES	
 	fragmentShaderCode += "precision highp float;\n";
 	fragmentShaderCode += "precision highp int;\n";
 #endif
 	string* currentShaderCode = NULL;
 
 	for (int i=0; i<lines.size(); i++) {
-		Log::msg("%d: %s", i, lines[i].c_str());
 		if (lines[i].compare("//[VERT]") == 0) {			
 			currentShaderCode = &vertexShaderCode;
 		}

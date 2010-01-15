@@ -173,7 +173,7 @@ void VertexStream::setNumIndices(unsigned int numIndices) {
 
 //-----------------------------------------------------------------------------
 
-unsigned short* VertexStream::getIndices() {
+VertexStreamIndex* VertexStream::getIndices() {
 	if (indices.size() > 0) return &indices[0];
 	else return NULL;
 }

@@ -90,7 +90,7 @@ Texture2D* Texture2D::generateChecker() {
 	
 	//glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, pixels);
 	glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-#ifdef GL_ES_VERSION_2_0
+#ifdef USE_OPENGL_ES
 	glGenerateMipmap(texture2D->textureTarget);
 #else
 	glGenerateMipmapEXT(texture2D->textureTarget);
@@ -129,7 +129,7 @@ Texture2D* Texture2D::fromFile(const char* fileName, bool keepPixels) {
 			free(imageData);
 		}
 		
-#ifdef GL_ES_VERSION_2_0
+#ifdef USE_OPENGL_ES
 		glGenerateMipmap(texture2D->textureTarget);
 #else
 		glGenerateMipmapEXT(texture2D->textureTarget);

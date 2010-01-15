@@ -42,7 +42,7 @@ void Cube::genCube(float sx, float sy, float sz, int nx, int ny, int nz, bool sm
 	VertexAttrib* posAttrib = vertexStream.getAttrib("position", TYPE_VEC3);
 	vec3* posBuf = (vec3*)posAttrib->getBuffer();
 	
-	unsigned short* indexBuf = vertexStream.getIndices();
+	VertexStreamIndex* indexBuf = vertexStream.getIndices();
 	//unsigned short* indexBuf2 = vertexStream.getIndices2();
 	
 	VertexAttrib* normalAttrib = vertexStream.getAttrib("normal", TYPE_VEC3);
@@ -119,7 +119,7 @@ void Cube::genCube(float sx, float sy, float sz, int nx, int ny, int nz, bool sm
 		VertexAttrib* planeTexCoord0Attrib = planeVS.getAttrib("texCoord0", TYPE_VEC2);
 		vec2* planeTexCoord0Buf = (vec2*)planeTexCoord0Attrib->getBuffer();
 		
-		unsigned short* planeIndexBuf = planeVS.getIndices();		
+		VertexStreamIndex* planeIndexBuf = planeVS.getIndices();		
 		
 		int numPlaneVertices = planeVS.getNumVertices();//sizeof(planePosBuf)/sizeof(vec3);
 		int numPlaneIndices = planeVS.getNumIndices();//sizeof(planeIndexBuf)/sizeof(unsigned short);

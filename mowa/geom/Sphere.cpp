@@ -53,7 +53,7 @@ void Sphere::genSphere(float r, unsigned int nsides, unsigned int nsegments) {
 	VertexAttrib* posAttrib = vertexStream.getAttrib("position", TYPE_VEC3);
 	vec3* posBuf = (vec3*)posAttrib->getBuffer();
 	
-	unsigned short* indexBuf = vertexStream.getIndices();
+	VertexStreamIndex* indexBuf = vertexStream.getIndices();
 	//unsigned short* indexBuf2 = vertexStream.getIndices2();
 	
 	VertexAttrib* normAttrib = vertexStream.getAttrib("normal", TYPE_VEC3);
