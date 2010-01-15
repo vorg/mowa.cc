@@ -38,7 +38,7 @@ extern const char* osLoadTextFile(const char* fileName) {
 	return contents;	
 }
 
-unsigned char* osLoadImageFile(const char* fileName, unsigned int* width, unsigned int *height) {
+unsigned char* osLoadImageFile(const char* fileName, unsigned int* width, unsigned int *height, unsigned int* bpp) {
 	NSString* fileNameString = [NSString stringWithCString:fileName length:strlen(fileName)];		
 	CGImageRef image;
 	CGContextRef imageContext;
@@ -52,6 +52,7 @@ unsigned char* osLoadImageFile(const char* fileName, unsigned int* width, unsign
 		h = CGImageGetHeight(image);
 		*width = w;
 		*height = h;
+		*bpp = 32; //RGBA
 		//NSLog(@"Image w:%d h:%d", w, h);
 		imageData = (GLubyte *) malloc(w * h * 4);
 		imageContext = CGBitmapContextCreate(imageData, w, h, 8, w * 4, CGImageGetColorSpace(image), kCGImageAlphaPremultipliedLast);
