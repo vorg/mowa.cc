@@ -11,6 +11,7 @@
 #include "VertexStream.h"
 #include "Vec.h"
 #include "Utils.h"
+#include "Graphics.h"
 
 namespace flow {
 
@@ -78,7 +79,14 @@ void VertexAttrib::setNumVertices(unsigned int numVertices) {
 //-----------------------------------------------------------------------------
 
 VertexStream::VertexStream() : numVertices(0) {
-	
+	switch(sizeof(VertexStreamIndex)) {
+		case sizeof(unsigned short):
+			indexType = GL_UNSIGNED_SHORT; break;
+		case sizeof(unsigned int):
+			indexType = GL_UNSIGNED_INT; break;
+		default:
+			indexType = GL_NONE;
+	}
 }
 
 
@@ -163,6 +171,12 @@ void VertexStream::setNumVertices(unsigned int numVertices) {
 
 unsigned int VertexStream::getNumIndices() {
 	return indices.size();
+}
+	
+//-----------------------------------------------------------------------------
+	
+unsigned int VertexStream::getIndexType() {
+	return indexType;
 }
 
 //-----------------------------------------------------------------------------

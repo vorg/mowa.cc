@@ -88,7 +88,10 @@ public:
 	void			setNumVertices(unsigned int numVertices);
 	
 	unsigned int	getNumIndices();
-	void			setNumIndices(unsigned int numIndices);	
+	void			setNumIndices(unsigned int numIndices);		
+	
+	unsigned int	indexType;
+	unsigned int	getIndexType();
 	
 	VertexStreamIndex*	getIndices();
 

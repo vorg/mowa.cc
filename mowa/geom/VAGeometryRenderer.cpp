@@ -38,8 +38,7 @@ void VAGeometryRenderer::render(Shader* shader) {
 		glEnableVertexAttribArray(i);
 	}
 	
-	glDrawElements(geom->getPrimitiveType(), vs->getNumIndices(), GL_UNSIGNED_SHORT, vs->getIndices());	
-	
+	glDrawElements(geom->getPrimitiveType(), vs->getNumIndices(), vs->getIndexType(), vs->getIndices());		
 }
 
 //------------------------------------------------------------------------------
