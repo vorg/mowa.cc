@@ -22,6 +22,11 @@
 extern void osRenderbufferStorage();
 extern void osPresentRenderbuffer();
 
+#else 
+
+#include <OpenGL/gl.h>
+#include <OpenGL/glext.h>
+
 #endif
 
 #include "Shader.h"
