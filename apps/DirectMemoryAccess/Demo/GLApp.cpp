@@ -26,9 +26,7 @@ void GLApp::init() {
 	glGenRenderbuffers(1, &colorRenderbuffer);
 	glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);		
 	//Log::msg("	osRenderbufferStorage");
-#ifdef GL_ES_VERSION_2_0	
 	osRenderbufferStorage();
-#endif
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderbuffer);	
 	
 	glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &windowWidth);
@@ -71,11 +69,10 @@ void GLApp::update() {
 	if (error != GL_NO_ERROR) {		
 		Log::msg("Error: OpenGL error %d", error);
 	}
-		
+	
+	
 	glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
-#ifdef GL_ES_VERSION_2_0	
 	osPresentRenderbuffer();
-#endif
 }
 
 //------------------------------------------------------------------------------

@@ -40,7 +40,7 @@ void VBOGeometryRenderer::render(Shader* shader) {
 	}
 	
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-	glDrawElements(GL_TRIANGLES, vs->getNumIndices(), GL_UNSIGNED_SHORT, 0);	
+	glDrawElements(geom->getPrimitiveType(), vs->getNumIndices(), GL_UNSIGNED_SHORT, 0);	
 }
 
 //------------------------------------------------------------------------------

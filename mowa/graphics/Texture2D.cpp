@@ -103,10 +103,20 @@ Texture2D* Texture2D::generateChecker() {
 Texture2D* Texture2D::fromFile(const char* fileName) {	
 	unsigned int width;
 	unsigned int height;
-	unsigned char* imageData = osLoadImageFile(fileName, &width, &height);
+	unsigned int bpp;
+	unsigned char* imageData = osLoadImageFile(fileName, &width, &height, &bpp);
 	if (imageData) {
 		Texture2D* texture2D = Texture2D::create(width, height);
-		glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
+		if (bpp == 32) {
+			glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
+		}
+		else if (bpp == 24) {
+			glTexImage2D(texture2D->textureTarget, 0, GL_RGBA, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, imageData);
+		}
+		else {
+			Log::error("Texture2D::fromFile unsupported numbe of bpp (%d) in \"%s\"", bpp, fileName);
+			return NULL;
+		}
 		free(imageData);		
 #ifdef GL_ES_VERSION_2_0
 		glGenerateMipmap(texture2D->textureTarget);

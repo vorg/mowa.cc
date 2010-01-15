@@ -16,7 +16,7 @@ namespace flow {
 void Log::msg(const char *formatStr, ...) {	
 	
 	va_list params;
-	char buf[256];
+	char buf[512];
 	
 	va_start(params, formatStr);
 	vsprintf(buf, formatStr, params);
